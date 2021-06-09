@@ -1,0 +1,19 @@
+.navbar {
+    border-bottom: 1px solid #e5e5e5;
+
+    &__logo {
+        margin-left: 5px;
+        padding: 10px 0 10px 0;
+    }
+
+    &__contact {
+        text-align: right;
+        margin-right: 5px;
+        font-size: 0.9rem;
+    }
+
+    &__logo-image {
+        width: 12rem;
+        margin-left:-10px;
+    }
+}
