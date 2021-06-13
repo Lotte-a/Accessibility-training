@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+.home__title {
+  margin-top: 0.8rem;
+  font-size: 1.6rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 1.6rem;
+}
+
+.home__text {
+  font-size: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.home__image-size {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.navbar {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.navbar__logo {
+  margin-left: 5px;
+  padding: 10px 0 10px 0;
+}
+
+.navbar__contact {
+  text-align: right;
+  margin-right: 5px;
+  font-size: 0.9rem;
+}
+
+.navbar__logo-image {
+  width: 12rem;
+  margin-left: -10px;
+}
+
+.player-wrapper {
+  position: relative;
+  padding-top: 56.25%;
+}
+
+.react-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* ------------------------------------------------------------ */
+@media (min-width: 768px) {
+  .navbar__logo {
+    margin-left: 8%;
+  }
+  .navbar__contact {
+    margin-right: 10%;
+  }
+  .home__title {
+    font-size: 2rem;
+    margin-top: 5rem;
+  }
+  .home__image-size {
+    margin-top: 60px;
+  }
+  .col-lg-6 {
+    padding-left: 10% !important;
+    padding-right: 10% !important;
+    padding-top: auto;
+  }
+  .page-margin {
+    padding: 4% 10% 0 10% !important;
+  }
+}
+
+/*----------------------------------------------------------------------------*\
+    #UTILITIES TEXT
+\*----------------------------------------------------------------------------*/
+.u-text-color-dark-blue {
+  color: #101228;
+}
+
+body {
+  line-height: 1.3 !important;
+}
+
+.container {
+  max-width: 100% !important;
+  height: 100vh;
+  margin: 0;
+}
+
+a:hover {
+  outline-offset: 2px !important;
+  outline-width: 3px !important;
+  outline-style: dotted !important;
+  outline-color: #2b50ec !important;
+}
+
+.hidden-hover a:hover {
+  outline-offset: 0px !important;
+  outline-width: 0px !important;
+}
+
+.btn-primary:hover {
+  outline-offset: 2px !important;
+  outline-width: 3px !important;
+  outline-style: dotted !important;
+  outline-color: #2b50ec !important;
+}
+
+a:hover, .btn-primary:hover, a:focus, .btn-primary:focus {
+  color: #101228 !important;
+  text-decoration: none !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+.btn {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+.btn-primary:hover, .btn-primary:focus {
+  color: white !important;
+}
+
+.btn-primary {
+  background-color: #FF7D00 !important;
+  border-color: #FF7D00 !important;
+  margin: 0.5rem 0 0 0 !important;
+  font-size: 1rem !important;
+  width: auto !important;
+  padding: 0.5rem 1.2rem !important;
+  border-radius: 2rem !important;
+  margin-bottom: 1.6rem !important;
+  font-weight: 800 !important;
+  font-family: "Inter", sans-serif !important;
+}
+/*# sourceMappingURL=styles.css.map */

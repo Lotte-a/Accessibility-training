@@ -10,13 +10,32 @@ body {
     margin: 0;
 }
 
-a:hover, .btn-primary:hover, a:focus, .btn-primary:focus {
-    color: $color-dark-blue!important;
-    text-decoration: none!important;
+a:hover {
     outline-offset: 2px!important;
     outline-width: 3px!important;
     outline-style: dotted!important;
     outline-color: $color-light-blue!important;
+}
+
+.hidden-hover a:hover{
+    outline-offset: 0px!important;
+    outline-width: 0px!important;
+}
+
+.btn-primary:hover {
+    outline-offset: 2px!important;
+    outline-width: 3px!important;
+    outline-style: dotted!important;
+    outline-color: $color-light-blue!important;
+}
+
+a:hover, .btn-primary:hover, a:focus, .btn-primary:focus {
+    color: $color-dark-blue!important;
+    text-decoration: none!important;
+    // outline-offset: 2px!important;
+    // outline-width: 3px!important;
+    // outline-style: dotted!important;
+    // outline-color: $color-light-blue!important;
     box-shadow: none!important;
 }
 
@@ -39,4 +58,8 @@ a:hover, .btn-primary:hover, a:focus, .btn-primary:focus {
     margin-bottom: 1.6rem!important;
     font-weight: $font-weight-bold!important;
     font-family: $font-family-base!important;
+}
+
+.btn-primary:focus {
+    background-color:red!important;
 }
