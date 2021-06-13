@@ -4,6 +4,9 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Home from './components/Home';
 import QuizIntro from './components/Intro';
+import SimulationOverview from './components/SimulationOverview';
+import VisuallyImpaired from './components/visuallyImpaired';
+
 import QuizOverview from './components/QuizOverview';
 import QuizColorContrast from './components/quiz/ColorContrast';
 import QuizAltTags from './components/quiz/AltTags';
@@ -25,6 +28,10 @@ class App extends Component {
       <Router>
         <Route path="/" exact component={Home} />
         <Route path="/introduction" exact component={QuizIntro} />
+        <Route path="/simulationOverview" exact component={SimulationOverview} />
+
+        <Route path="/visuallyImpaired" exact component={VisuallyImpaired} />
+
         <Route path="/quizOverview" exact component={QuizOverview} />
         <Route path="/colorContrast" exact component={QuizColorContrast} />
         <Route path="/altTags" exact component={QuizAltTags} />
