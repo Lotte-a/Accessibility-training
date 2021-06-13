@@ -63,3 +63,31 @@ a:hover, .btn-primary:hover, a:focus, .btn-primary:focus {
 .btn-primary:focus {
     background-color:red!important;
 }
+
+.page-wrapper {
+    margin: 2% 8% 0 8%;
+}
+
+.btn-choice {
+    background-color: $color-light-dark-blue!important;
+    border-radius: 6px!important;
+    width: 100%!important;
+    border: 1px solid $color-light-dark-blue!important;
+    // margin-top: 0!important;
+    margin:20px 0 0 0!important;
+    text-align: left !important;
+    padding: 1rem!important;
+    font-weight: 500!important;
+}
+
+.wrapper {
+    margin-top: 2rem;
+}
+
+.btn-float-right {
+    float: right!important;
+  }
+
+.image-assignment {
+    width: 90%;
+}

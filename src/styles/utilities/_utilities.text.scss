@@ -7,3 +7,28 @@ $txt: u-text-;
 .#{$txt}color-dark-blue {
     color: $color-dark-blue;
 }
+
+.#{$txt}title {
+    font-family: $font-family-base;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-base;
+}
+
+.#{$txt}assignment{
+    font-family: $font-family-base;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-assigment;
+}
+
+.#{$txt}description{
+    font-family: $font-family-base;
+    font-size: $font-size-description;
+}
+
+.#{$txt}assignment-length {
+    color: $color-gray;
+    font-weight: $font-weight-medium;
+}
+
+
+

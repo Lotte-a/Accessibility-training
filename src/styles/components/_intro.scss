@@ -2,13 +2,41 @@
     position: relative;
     padding-top: 56.25% /* Player ratio: 100 / (1280 / 720) */
 }
-  
+
 .react-player {
     position: absolute;
     top: 0;
     left: 0;
 }
 
-.intro__button {
-    float:right;
+.intro-modal {
+    background-color:white;
+    margin-top: 20%;
+    width:90%;
+    margin:15% auto auto auto;
+    padding: 20px 20px 90px 20px;
+    border: 1px solid $color-light-blue;
 }
+
+.intro__title {
+    font-size: 1rem;
+}
+
+.intro-modal {
+    .btn-primary {
+        float:right;
+    } 
+}
+
+.intro-btn {
+    .btn-primary {
+        float:right;
+    } 
+}
+
+.ReactModal__Overlay {
+    position: absolute!important;
+//     background-color:red!important;
+}
+
+

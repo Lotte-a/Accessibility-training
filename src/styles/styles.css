@@ -129,7 +129,7 @@ a:hover, .btn-primary:hover, a:focus, .btn-primary:focus {
 .btn-primary {
   background-color: #FF7D00 !important;
   border-color: #FF7D00 !important;
-  margin: 0.5rem 0 0 0 !important;
+  /* margin: 0.5rem 0 0 0 !important; */
   font-size: 1rem !important;
   width: auto !important;
   padding: 0.5rem 1.2rem !important;
