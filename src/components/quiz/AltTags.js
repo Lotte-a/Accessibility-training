@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button } from 'react-bootstrap';
+import { Button, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 import Logo from '../../images/logo.png';
@@ -11,15 +11,14 @@ export default function QuizAltTags() {
 			questionText: 'Hier komt vraag 1',
 
 			answerOptions: [
-				{ answerText: 'New York', isCorrect: false },
-				{ answerText: 'London', isCorrect: false },
-				{ answerText: 'Paris', isCorrect: true },
-				{ answerText: 'Dublin', isCorrect: false },
+				{ answerText: 'A) New York', isCorrect: false },
+				{ answerText: 'B) London', isCorrect: false },
+				{ answerText: 'C) Paris', isCorrect: true },
+				{ answerText: 'D) Dublin', isCorrect: false },
 			],
 
-			answer: 'C',
 			src: Logo,
-			alt: 'Logo',
+			alt: '',
 
 			answerCorrect: 'Het antwoord is juist, omdat...',
 			answerIncorrect: 'Het antwoord is onjuist, omdat...'
@@ -32,9 +31,8 @@ export default function QuizAltTags() {
 				{ answerText: 'London', isCorrect: true },
 			],
 
-			answer: 'A',
-			src: 'Logo',
-			alt: 'Logo',
+			src: '',
+			alt: '',
 
 			answerCorrect: 'Het antwoord is juist, omdat...',
 			answerIncorrect: 'Het antwoord is onjuist, omdat...',
@@ -48,7 +46,6 @@ export default function QuizAltTags() {
 				{ answerText: 'Paris', isCorrect: true },
 				{ answerText: 'Dublin', isCorrect: false },
 			],
-			answer: 'D',
 			src: '',
 			alt: '',
 
@@ -58,7 +55,7 @@ export default function QuizAltTags() {
 	];
 
 	const [currentQuestion, setCurrentQuestion] = useState(0);
-	const [optionChosen, setOptionChosen] = useState("");
+	// const [optionChosen, setOptionChosen] = useState("");
 
 	const [showScore, setShowScore] = useState(false);
 	const [currentScore, setCurrentScore] = useState(0);
@@ -88,19 +85,21 @@ export default function QuizAltTags() {
 			setShowQuestions(false);
 		}
 
+		//Als het de laatste vraag is
 		if (currentQuestion == Questions.length - 1) {
 			setShowScore(true);
 			setShowCorrect(false);
 			setShowIncorrect(false);
+			setShowQuestions(false);
 		}
 	}
 
 	const nextQuestion = () => {
-			setCurrentQuestion(currentQuestion + 1);
-			setShowQuestions(true);
-			setShowCorrect(false);
-			setShowIncorrect(false);
-			setShowScore(false);
+		setCurrentQuestion(currentQuestion + 1);
+		setShowQuestions(true);
+		setShowCorrect(false);
+		setShowIncorrect(false);
+		setShowScore(false);
 	}
 
 	const previousQuestion = () => {
@@ -116,50 +115,70 @@ export default function QuizAltTags() {
 	};
 
 	return (
-		<div>
-			<h1>Tekstalternatieven</h1>
+		<div class="wrapper">
 
-			{/* Laat de vragen zien met de bijbehordende keuzes */}
-			{showQuestions ? (
-				<div>
-					<span>Oefening {currentQuestion + 1}</span>/{Questions.length}
-					<div className='question-text'>{Questions[currentQuestion].questionText}</div>
-					<img src={Questions[currentQuestion].src} alt={Questions[currentQuestion].alt} />
+			<Row>
+				<div className="home-introduction hidden-hover col-lg-6 col-sm-12 col-xs-12">
 
-					<h1>Antwoordopties</h1>
+					<h1 class="u-text-title">Tekstalternatieven</h1>
+
+					{/* Laat de vragen zien met de bijbehordende keuzes */}
+					{showQuestions ? (
+						<div>
+							<div class="assignment">
+								<span class="u-text-assignment-length">Oefening {currentQuestion + 1}/{Questions.length}</span>
+								<div className='u-text-assignment'>{Questions[currentQuestion].questionText}</div>
+								<img class="image-assignment" src={Questions[currentQuestion].src} alt={Questions[currentQuestion].alt} />
+							</div>
+						</div>
+					) : null}
+
+					{showCorrect ? (
+						<div class="assignment">
+							<p class="u-text-assignment">{Questions[currentQuestion].answerCorrect}</p>
+							<Button onClick={previousQuestion} disabled={disabled}>Vorige</Button>
+							<Button onClick={nextQuestion}>Volgende</Button>
+						</div>
+					) : null}
+
+					{/* Laat de uitleg zien waarom het antwoord FOUT is */}
+					{showIncorrect ? (
+						<div>
+							<div class="assignment">
+								<p class="u-text-assignment">{Questions[currentQuestion].answerIncorrect}</p>
+							</div>
+						</div>
+					) : null}
+				</div>
+
+				<div className="home__image col-lg-6 col-sm-12 col-xs-12">
+					<h1 class="u-text-title">Antwoordopties</h1>
 					<div className='answer-section'>
-					  	{Questions[currentQuestion].answerOptions.map((answerOption) => (
-              			<Button onClick={()=> handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}</Button>
-           			 ))}
+						{Questions[currentQuestion].answerOptions.map((answerOption) => (
+							<Button className="btn-choice" onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}</Button>
+						))}
 					</div>
-				</div>
-			) : null}
 
-			{/* Laat de uitleg zien waarom het antwoord GOED is */}
-			{showCorrect ? (
-				<div>
-					<div>{Questions[currentQuestion].answerCorrect}</div>
-					<Button onClick={previousQuestion} disabled={disabled}>Vorige</Button> 
-					<Button onClick={nextQuestion}>Volgende</Button>
+					{showIncorrect ? (
+						<div>
+							<Button disabled={disabled} onClick={previousQuestion}>Vorige</Button>
+							<Button className="btn-float-right" onClick={nextQuestion}>Volgende</Button>
+						</div>
+					) : null}
 				</div>
-			) : null}
-
-			{/* Laat de uitleg zien waarom het antwoord FOUT is */}
-			{showIncorrect ? (
-				<div>
-					<div>{Questions[currentQuestion].answerIncorrect}</div>
-					<Button disabled={disabled} onClick={previousQuestion}>Vorige</Button> 
-					<Button onClick={nextQuestion}>Volgende</Button>
-				</div>
-			) : null}
+			</Row>
 
 			{showScore ? (
-				<div>
+				<Row>
+					<div>
 					Op dit onderdeel heb je {currentScore} van de {Questions.length} goed beantwoord
 					<div>
-					<Link to="/introduction"><Button>Finish training</Button></Link>
+						<Link to="/introduction"><Button>Finish training</Button></Link>
 					</div>
-				</div>
+					</div>
+
+				</Row>
+				
 			) : null}
 		</div>
 	);
