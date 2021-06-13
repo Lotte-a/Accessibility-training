@@ -18,19 +18,18 @@ class App extends Component {
 
     <Container>
       <nav class="navbar">
-        <a class="navbar__logo" href="#"><img src={Logo} class="navbar__logo-image" /></a>
+        <a class="navbar__logo u-text-focus" href="/"><img src={Logo} alt="Logo Accessibility" class="navbar__logo-image" /></a>
         <a class="navbar__contact u-text-color-dark-blue" href="#">Contact</a> 
       </nav>
 
-         <Router>
-           <Route path="/" exact component={Home} />
-           <Route path="/introduction" exact component={QuizIntro} />
-           <Route path="/quizOverview" exact component={QuizOverview} />
-    
-           <Route path="/colorContrast" exact component={QuizColorContrast} />
-           <Route path="/altTags" exact component={QuizAltTags} />
-         </Router>
-      </Container>
+      <Router>
+        <Route path="/" exact component={Home} />
+        <Route path="/introduction" exact component={QuizIntro} />
+        <Route path="/quizOverview" exact component={QuizOverview} />
+        <Route path="/colorContrast" exact component={QuizColorContrast} />
+        <Route path="/altTags" exact component={QuizAltTags} />
+      </Router>
+    </Container>
     );
   }
 }
