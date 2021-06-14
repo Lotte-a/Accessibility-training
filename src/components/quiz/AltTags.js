@@ -6,6 +6,9 @@ import { Helmet } from 'react-helmet';
 import ImageScore from '../../images/score.png';
 import Logo from '../../images/logo.png';
 
+import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 export default function QuizAltTags() {
 
 	const Questions = [
@@ -141,7 +144,7 @@ export default function QuizAltTags() {
 
 	return (
 		<div class="wrapper">
-			 <Helmet>
+			<Helmet>
                 <title>Tekstalternatieven | Accessibility Training</title>
             </Helmet>
 
@@ -178,7 +181,6 @@ export default function QuizAltTags() {
 
 					{showCorrectLastOne ? (
 						<div>
-							<h1>Hoooii ik ben de laatste stap van de goeie</h1>
 							<div class="assignment">
 								<p class="u-text-assignment">{Questions[currentQuestion].answerCorrect}</p>
 							</div>
@@ -241,18 +243,30 @@ export default function QuizAltTags() {
 			</Row>
 
 			{showScore ? (
-				<Row>
-					<div className="col-lg-6 col-sm-12 col-xs-12">
+			<Row>
+				<div className="col-lg-6 col-sm-12 col-xs-12">
 					<p class="u-text-score">Je hebt <strong>{currentScore}</strong> van de <strong>{Questions.length}</strong> vragen goed beantwoord!</p>
-						<div class="btn-action">
-							<Link to="/introduction"><Button>Door naar het volgende onderdeel</Button></Link>
-						</div>
-					</div>
 
-					<div className="col-lg-6 col-sm-12 col-xs-12">
-						<img class="image-score" src={ImageScore} />
+					<img class="image-score" src={ImageScore} alt="" />
+				</div>
+
+				<div className="col-lg-6 col-sm-12 col-xs-12">
+					<h2 class="u-text-title">Afgeronde onderdelen (2/7)</h2>
+
+					<ol>
+						<li>Kleurcontrast <FontAwesomeIcon icon={faCheckCircle} /></li>
+						<li>Tekstalternatieven <FontAwesomeIcon icon={faCheckCircle} /></li>
+						<li class="u-text-dissabled">Tekst</li>
+						<li class="u-text-dissabled">Links</li>
+						<li class="u-text-dissabled">Labels</li>
+						<li class="u-text-dissabled">Forms</li>
+						<li class="u-text-dissabled">Document language</li>
+					</ol>
+					<div class="btn-action">
+						<Link to="/introduction"><Button>Naar het volgende onderdeel</Button></Link>
 					</div>
-				</Row>
+				</div>
+			</Row>
 			) : null}
 		</div>
 	);
