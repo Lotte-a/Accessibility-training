@@ -6,10 +6,12 @@ import Home from './components/Home';
 import QuizIntro from './components/Intro';
 import SimulationOverview from './components/SimulationOverview';
 import VisuallyImpaired from './components/visuallyImpaired';
+import FinishedQuiz from './components/FinishedQuiz';
 
 import QuizOverview from './components/QuizOverview';
 import QuizColorContrast from './components/quiz/ColorContrast';
 import QuizAltTags from './components/quiz/AltTags';
+
 
 import { Container } from 'react-bootstrap';
 
@@ -35,6 +37,8 @@ class App extends Component {
         <Route path="/quizOverview" exact component={QuizOverview} />
         <Route path="/colorContrast" exact component={QuizColorContrast} />
         <Route path="/altTags" exact component={QuizAltTags} />
+
+        <Route path="/finishedQuiz" exact component={FinishedQuiz} />
       </Router>
     </Container>
     );
