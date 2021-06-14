@@ -43,3 +43,15 @@ $txt: u-text-;
 .#{$txt}dissabled {
     color: $color-gray;
 }
+
+.#{$txt}correct {
+    color: $color-green;
+    font-weight: $font-weight-bold;
+    font-weight: $font-weight-medium;
+}
+
+.#{$txt}incorrect {
+    color: $color-red;
+    font-weight: $font-weight-bold;
+    font-weight: $font-weight-medium;
+}
