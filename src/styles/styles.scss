@@ -10,74 +10,96 @@ body {
     margin: 0;
 }
 
-a:hover {
+a:hover, a:focus {
     outline-offset: 2px!important;
     outline-width: 3px!important;
     outline-style: dotted!important;
     outline-color: $color-light-blue!important;
-}
+}       
 
-.hidden-hover a:hover{
+a:hover{
     outline-offset: 0px!important;
     outline-width: 0px!important;
 }
 
-.btn-primary:hover {
-    outline-offset: 2px!important;
-    outline-width: 3px!important;
-    outline-style: dotted!important;
-    outline-color: $color-light-blue!important;
+.btn-action-end-right {
+    float:right;
 }
 
-a:hover, .btn-primary:hover, a:focus, .btn-primary:focus {
-    color: $color-dark-blue!important;
-    text-decoration: none!important;
-    // outline-offset: 2px!important;
-    // outline-width: 3px!important;
-    // outline-style: dotted!important;
-    // outline-color: $color-light-blue!important;
-    box-shadow: none!important;
+.btn-action-left {
+    float:left;
 }
 
-.btn {
-    box-shadow: none!important;
+.btn-action-end, .btn-action-end-right {
+    .btn-primary {
+        background-color: $color-green!important;
+        border-color: $color-green!important;
+    }
 }
 
-.btn-primary:hover, .btn-primary:focus {
-    color: $color-white!important;
+.btn-action, .btn-action-left {
+    .btn-primary {
+        background-color: $color-orange!important; 
+        border-color: $color-orange!important;
+    }
 }
 
-.btn-primary {
-    background-color:#FF7D00!important;
-    border-color: #FF7D00!important;
-    margin: 0.5rem 0 0 0!important;
-    font-size: 1rem!important;
-    width: auto!important;
-    padding: 0.5rem 1.2rem!important;
-    border-radius: 2rem!important;
-    margin-bottom: 1.6rem!important;
-    font-weight: $font-weight-bold!important;
-    font-family: $font-family-base!important;
+.btn-action, .btn-action-left, .btn-action-end, .btn-action-end-right {
+    .btn-primary {
+        margin: 0.5rem 0 0 0!important;
+        font-size: 1rem!important;
+        width: auto!important;
+        padding: 0.5rem 1.2rem!important;
+        border-radius: 2rem!important;
+        margin-bottom: 1.6rem!important;
+        font-weight: $font-weight-bold!important;
+        font-family: $font-family-base!important;
+        color: $color-white!important;
+    }
+
+    a:focus {
+        outline-offset: 2px!important;      
+        outline-width: 3px!important;
+        outline-style: dotted!important;
+        outline-color: $color-light-blue!important;
+        border-color: $color-light-blue!important;  
+        color: $color-white!important;
+        border-radius: 1rem!important;
+    }
 }
 
-.btn-primary:focus {
-    background-color:red!important;
+.btn-action, .btn-action-left, .btn-option, .btn-action-end, .btn-action-end-right {
+    .btn-primary:focus, .btn-primary:hover {
+        outline-offset: 2px!important;      
+        outline-width: 3px!important;
+        outline-style: dotted!important;
+        outline-color: $color-light-blue!important;
+        border-color: $color-light-blue!important;  
+        color: $color-white!important;
+        box-shadow: none!important;
+    }
+}
+.btn-option {
+    .btn-primary:focus {
+        background-color: $color-light-blue!important;
+    }
+}
+
+.btn-option {
+    .btn-primary {
+        background-color: $color-light-dark-blue!important;
+        border-radius: 6px!important;
+        width: 100%!important;
+        border: 1px solid $color-light-dark-blue!important;
+        margin:20px 0 0 0!important;
+        text-align: left !important;
+        padding: 1rem!important;
+        font-weight: 500!important;
+    }
 }
 
 .page-wrapper {
     margin: 2% 8% 0 8%;
-}
-
-.btn-choice {
-    background-color: $color-light-dark-blue!important;
-    border-radius: 6px!important;
-    width: 100%!important;
-    border: 1px solid $color-light-dark-blue!important;
-    // margin-top: 0!important;
-    margin:20px 0 0 0!important;
-    text-align: left !important;
-    padding: 1rem!important;
-    font-weight: 500!important;
 }
 
 .wrapper {
@@ -90,4 +112,9 @@ a:hover, .btn-primary:hover, a:focus, .btn-primary:focus {
 
 .image-assignment {
     width: 90%;
+}
+
+.image-score {
+    width:100%;
+    margin-top:0;
 }
