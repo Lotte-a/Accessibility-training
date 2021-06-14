@@ -25,6 +25,12 @@ $txt: u-text-;
     font-size: $font-size-description;
 }
 
+.#{$txt}subscription{
+    font-family: $font-family-base;
+    // font-size: $font-size-subscription;
+    font-weight: $font-weight-bold;
+}
+
 .#{$txt}assignment-length {
     color: $color-gray;
     font-weight: $font-weight-medium;
@@ -34,5 +40,6 @@ $txt: u-text-;
     font-size: $font-size-score;
 }
 
-
-
+.#{$txt}dissabled {
+    color: $color-gray;
+}

@@ -44,7 +44,14 @@ a:hover{
     }
 }
 
-.btn-action, .btn-action-left, .btn-action-end, .btn-action-end-right {
+.btn-company {
+    .btn-primary {
+        background-color: $color-light-blue!important; 
+        border-color: $color-light-blue!important;
+    }
+}
+
+.btn-action, .btn-action-left, .btn-action-end, .btn-action-end-right, .btn-company {
     .btn-primary {
         margin: 0.5rem 0 0 0!important;
         font-size: 1rem!important;
@@ -68,7 +75,7 @@ a:hover{
     }
 }
 
-.btn-action, .btn-action-left, .btn-option, .btn-action-end, .btn-action-end-right {
+.btn-action, .btn-action-left, .btn-option, .btn-action-end, .btn-action-end-right, .btn-company {
     .btn-primary:focus, .btn-primary:hover {
         outline-offset: 2px!important;      
         outline-width: 3px!important;

@@ -1,0 +1,23 @@
+.finished-description {
+    border: 2px dotted $color-light-blue;
+    padding: 3rem;
+    text-align: center;
+
+    h2 {
+        margin-top: 20px;
+    }
+}
+
+.finished {
+    a {
+        text-decoration: underline;
+        color: $color-dark-blue;
+    }
+    a:hover, a:focus {
+        color: $color-dark-blue;
+        outline-offset: 2px!important;
+        outline-width: 3px!important;
+        outline-style: dotted!important;
+        outline-color: $color-light-blue!important;
+    }
+}
