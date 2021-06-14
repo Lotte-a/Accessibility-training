@@ -29,7 +29,7 @@ const QuizOverview = () => (
                     <li>Tekst</li>
                     <li>Links</li>
                     <li>Labels</li>
-                    <li>Forms</li>
+                    <li>Buttons</li>
                     <li>Document language</li>
                 </ol>
 

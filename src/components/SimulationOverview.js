@@ -29,10 +29,9 @@ export default function QuizIntro() {
                         <div class="assignment">
                             <h2 class="u-text-title">Opdracht</h2>
                             <p class="u-text-assignment">Benieuwd naar hoe een persoon met visuele beperking een webshop waarneemt? Kies één van de verschillende soorten visuele beperkingen uit en ervaar het zelf!</p>
-
-                            <div class="btn-action-end">
+                            {/* <div class="btn-action-end">
                                 <Link to="/quizOverview"><Button>Sla opdracht over</Button></Link>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
 

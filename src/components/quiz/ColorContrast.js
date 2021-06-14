@@ -4,51 +4,27 @@ import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
 import ImageScore from '../../images/score.png';
-import Logo from '../../images/logo.png';
 
-import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+import { faCheckCircle, faTimesCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function QuizAltTags() {
 
 	const Questions = [
-		{
-			questionText: 'Hier komt vraag 1',
+		{	
+			explanation: 'Op websites en apps moet lichte tekst een donkere achtergrond hebben en donkere tekst een lichte achtergrond. Anders is de leesbaarheid onvoldoende voor gebruikers die kleurenblind of slechtziend zijn',
+			questionText: 'Welk kleurcontrast moet een tekst die kleiner is dan 14 pt. minimaal bevatten in combinatie met de achtergrondkleur?',
 			answerOptions: [
-				{ answerText: 'A) New York', isCorrect: false },
-				{ answerText: 'B) London', isCorrect: false },
-				{ answerText: 'C) Paris', isCorrect: true },
-				{ answerText: 'D) Dublin', isCorrect: false },
-			],
-			src: Logo,
-			alt: '',
-			answerCorrect: 'Het antwoord is juist, omdat...',
-			answerIncorrect: 'Het antwoord is onjuist, omdat...'
-		},
-		{
-			questionText: 'Hier komt vraag 2',
-			answerOptions: [
-				{ answerText: 'New York', isCorrect: false },
-				{ answerText: 'London', isCorrect: true },
+				{ answerText: 'A ) 4,5:1', isCorrect: true },
+				{ answerText: 'B ) 3:1', isCorrect: false },
+				{ answerText: 'C ) 2,5:2', isCorrect: false },
+				{ answerText: 'D ) 1:4', isCorrect: false },
 			],
 			src: '',
 			alt: '',
-			answerCorrect: 'Het antwoord is juist, omdat...',
-			answerIncorrect: 'Het antwoord is onjuist, omdat...',
-		},
-		{
-			questionText: 'Hier komt vraag 2',
-			answerOptions: [
-				{ answerText: 'New York', isCorrect: false },
-				{ answerText: 'London', isCorrect: false },
-				{ answerText: 'Paris', isCorrect: true },
-				{ answerText: 'Dublin', isCorrect: false },
-			],
-			src: '',
-			alt: '',
-			answerCorrect: 'Het antwoord is juist, omdat...',
-			answerIncorrect: 'Het antwoord is onjuist, omdat...',
-		},
+			answerCorrect: 'Teksten die kleiner zijn dan 14 pt. hebben een minimale kleurcontrast nodig van 4,5:1. Teksten met grotere letters (18pt. of 14pt. als het vetgedrukt is) en grotere pictogrammen, hebben slechts een kleurcontrast van 3:1 nodig. Om erachter te komen hoe hoog het contrast is tussen twee kleuren, kun je de kleuren invoeren in speciale tools die dit berekenen. Een voorbeeld van een tool is de Colour Contrast Analyser.',
+			answerIncorrect: 'Het juiste antwoord is antwoord A. Teksten die kleiner zijn dan 14 pt. hebben een minimale kleurcontrast nodig van 4,5:1. Teksten met grotere letters (18pt. of 14pt. als het vetgedrukt is) en grotere pictogrammen, hebben slechts een kleurcontrast van 3:1 nodig. Om erachter te komen hoe hoog het contrast is tussen twee kleuren, kun je de kleuren invoeren in speciale tools die dit berekenen. Een voorbeeld van een tool is de Colour Contrast Analyser.'
+		}
 	];
 
 	const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -61,6 +37,7 @@ export default function QuizAltTags() {
 	const [disabled, setDisabled] = useState(false);
 	const [showScore, setShowScore] = useState(false);
 	const [currentScore, setCurrentScore] = useState(0);
+	const [showExplanation, setShowExplanation] = useState(true);
 	// const [btnColor, setBtnColor] = useState('blue');
 
 	// Show the explenation why an answer is correct or incorrect
@@ -76,6 +53,7 @@ export default function QuizAltTags() {
 			setShowCorrect(true);
 			setShowIncorrectLastOne(false);
 			setShowQuestions(false);
+			setShowExplanation(false);
 			setShowIncorrect(false);
 			setShowCorrectLastOne(false);
 			// setBtnColor('green');
@@ -83,6 +61,7 @@ export default function QuizAltTags() {
 			setShowIncorrect(true);
 			setShowCorrect(false);
 			setShowQuestions(false);
+			setShowExplanation(false);
 			setShowCorrectLastOne(false);
 			setShowIncorrectLastOne(false);
 			// setBtnColor('red');
@@ -95,12 +74,14 @@ export default function QuizAltTags() {
 				setShowCorrect(false);
 				setShowIncorrect(false);
 				setShowQuestions(false);
+				setShowExplanation(false);
 				setShowOptions(false);
 			} else {
 				setShowIncorrectLastOne(true);
 				setShowCorrectLastOne(false);
 				setShowIncorrect(false);
 				setShowCorrect(false);
+				setShowExplanation(false);
 				setShowQuestions(false);
 				setShowOptions(false);
 			}
@@ -114,12 +95,14 @@ export default function QuizAltTags() {
 		setShowCorrect(false);
 		setShowIncorrect(false);
 		setShowQuestions(false);
+		setShowExplanation(false);
 		setShowOptions(false);
 	}
 
 	const nextQuestion = () => {
 		setCurrentQuestion(currentQuestion + 1);
 		setShowQuestions(true);
+		setShowExplanation(true);
 		setShowCorrect(false);
 		setShowIncorrect(false);
 		setShowScore(false);
@@ -131,6 +114,7 @@ export default function QuizAltTags() {
 		setCurrentQuestion(currentQuestion - 1);
 		setCurrentScore(currentScore - 1);
 		setShowQuestions(true);
+		setShowExplanation(true);
 		setShowOptions(true);
 		setShowCorrect(false);
 		setShowIncorrect(false);
@@ -145,13 +129,20 @@ export default function QuizAltTags() {
 	return (
 		<div class="wrapper">
 			<Helmet>
-                <title>Kleurcontrast | Accessibility Training</title>
+                <title>Quiz kleurcontrast &#38; tekst | Accessibility Training</title>
             </Helmet>
 
 			<Row>
 				<div className="home-introduction hidden-hover col-lg-6 col-sm-12 col-xs-12">
 
-					<h1 class="u-text-title">Kleurcontrast</h1>
+					<h1 class="u-text-title">Kleurcontrast &#38; tekst</h1>
+
+					{showExplanation? (
+						<div>
+							<p class="u-text-assignment">{Questions[currentQuestion].explanation}</p>
+						</div>
+					
+					) : null}
 
 					{/* Laat de vragen zien met de bijbehordende keuzes */}
 					{showQuestions ? (
@@ -166,7 +157,8 @@ export default function QuizAltTags() {
 
 					{showCorrect ? (
 						<div class="assignment">
-							<p class="u-text-assignment">{Questions[currentQuestion].answerCorrect}</p>
+							<p class="u-text-correct"><FontAwesomeIcon icon={faCheckCircle} /> Het antwoord is juist!</p>
+							<p class="u-text-description">{Questions[currentQuestion].answerCorrect}</p>
 						</div>
 					) : null}
 
@@ -174,7 +166,8 @@ export default function QuizAltTags() {
 					{showIncorrect ? (
 						<div>
 							<div class="assignment">
-								<p class="u-text-assignment">{Questions[currentQuestion].answerIncorrect}</p>
+								<p class="u-text-incorrect"><FontAwesomeIcon icon={faTimesCircle} /> Het antwoord is onjuist..</p>
+								<p class="u-text-description">{Questions[currentQuestion].answerIncorrect}</p>
 							</div>
 						</div>
 					) : null}
@@ -182,6 +175,7 @@ export default function QuizAltTags() {
 					{showCorrectLastOne ? (
 						<div>
 							<div class="assignment">
+								<p class="u-text-correct"><FontAwesomeIcon icon={faCheckCircle} /> Het antwoord is juist!</p>
 								<p class="u-text-assignment">{Questions[currentQuestion].answerCorrect}</p>
 							</div>
 							<div class="btn-action-left">
@@ -196,6 +190,7 @@ export default function QuizAltTags() {
 					{showIncorrectLastOne ? (
 						<div>
 							<div class="assignment">
+								<p class="u-text-incorrect"><FontAwesomeIcon icon={faTimesCircle} /> Het antwoord is onjuist..</p>
 								<p class="u-text-assignment">{Questions[currentQuestion].answerIncorrect}</p>
 							</div>
 							<div class="btn-action-left">
@@ -251,15 +246,15 @@ export default function QuizAltTags() {
 					</div>
 
 					<div className="col-lg-6 col-sm-12 col-xs-12">
-						<h2 class="u-text-title">Afgeronde onderdelen (1/7)</h2>
+						<h2 class="u-text-title">Afgeronde onderdelen (2/7)</h2>
 
 						<ol>
 							<li>Kleurcontrast <FontAwesomeIcon icon={faCheckCircle} /></li>
+							<li>Tekst <FontAwesomeIcon icon={faCheckCircle} /></li>
 							<li class="u-text-dissabled">Tekstalternatieven</li>
-							<li class="u-text-dissabled">Tekst</li>
 							<li class="u-text-dissabled">Links</li>
 							<li class="u-text-dissabled">Labels</li>
-							<li class="u-text-dissabled">Forms</li>
+							<li class="u-text-dissabled">Buttons</li>
 							<li class="u-text-dissabled">Document language</li>
 						</ol>
 						<div class="btn-action">

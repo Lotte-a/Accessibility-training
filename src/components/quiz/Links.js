@@ -9,48 +9,20 @@ import QuizImage1 from '../../images/quiz-image-1.png';
 import { faCheckCircle, faTimesCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export default function QuizAltTags() {
+export default function Links() {
 
 	const Questions = [
 		{	
-			explanation: 'De alt tag is een attribuut van een afbeelding. Het bestaat uit tekst die de content van de afbeelding beschrijft. De alt tag kan worden voorgelezen door voorleessofware, waardoor een persoon die blind is, in staat is om te begrijpen wat er op de afbeelding staat. Dit is een voorbeeld van een alt tag in code <img src="ondernemer.jpg" alt="ondernemer">',
-			questionText: 'Stelling: bij een decoratieve afbeelding mag het alt atribuut worden weggelaten',
+			explanation: '',
+			questionText: 'Stelling: in de volgende code wordt een klikbaar icoon op een toegankelijke manier geplaatst: <a href="http.//www.shopping.com"><span class="fa fa-twitter"></span></a>',
 			answerOptions: [
 				{ answerText: 'A ) De stelling is juist', isCorrect: false },
 				{ answerText: 'B ) De stelling is onjuist', isCorrect: true },
 			],
 			src: '',
 			alt: '',
-			answerCorrect: 'Aan een afbeelding moet altijd een alt attribuut worden toegevoegd. Hierdoor wordt voorkomen dat de voorleessoftware de soms lange en moeilijk te begrijpen bestandsnaam van de afbeelding gaat voorlezen, die verwarring kan veroorzaken bij mensen met een visuele beperking.',
-			answerIncorrect: 'Aan een afbeelding moet altijd een alt attribuut worden toegevoegd, ook wanneer deze geen informatie geeft. Door het alt atribuut leeg te laten, negeert de voorleessoftware de afbeelding. Hierdoor wordt voorkomen dat de voorleessoftware de soms lange en moeilijk te begrijpen bestandsnaam van de afbeelding gaat voorlezen, die verwarring kan veroorzaken bij mensen met een visuele beperking.'
-		},
-		{
-			explanation: 'De alt tag is een attribuut van een afbeelding. Het bestaat uit tekst die de content van de afbeelding beschrijft. De alt tag kan worden voorgelezen door voorleessofware, waardoor een persoon die blind is, in staat is om te begrijpen wat er op de afbeelding staat. Dit is een voorbeeld van een alt tag in code <img src="ondernemer.jpg" alt="ondernemer">',
-			questionText: 'Wat is een goed tekstalternatief voor onderstaande afbeelding? (nieuwsoverzicht)',
-			answerOptions: [
-				{ answerText: 'A ) alt="winkelwagen"', isCorrect: false },
-				{ answerText: 'B ) alt=""', isCorrect: true },
-				{ answerText: 'C ) alt="Commerciële websites nog onvoldoende toegankelijk voor beperkten"', isCorrect: false },
-				{ answerText: 'D ) alt="winkelwagen_icon_20.jpg"', isCorrect: false },
-			],
-			src: QuizImage1,
-			alt: 'Decoratieve afbeelding die geen informatie geeft',
-			answerCorrect: 'De afbeelding is een decoratieve afbeelding en geeft geen informatie. Hierdoor mag het alt attribuut worden leeggelaten, waardoor de afbeelding door de voorleessoftware wordt genegeerd.',
-			answerIncorrect: 'De afbeelding is een decoratieve afbeelding en geeft geen informatie. Om deze reden mag het alt atribuut leeg gelaten worden. Door het alt atribuut leeg te laten wordt de afbeelding door de voorleessoftware niet opgelezen. Hierdoor kunnen mensen met eenvisuele beperking de informatie raadplegen, zonder daarbij gestoord te hoeven worden.'
-		},
-		{
-			explanation: 'Een goed kleurcontrast tussen tekst en achtergrondkleur is belangrijk. Onvoldoende contrast maakt de tekst moeilijker leesbaar voor slechtzienden.',
-			questionText: 'De afbeelding van het logo van de Tweede Kamer Der Staten-Generaal staat links bovenaan de website. Het is ook een link naar de homepagina. Wat is het beste tekstalternatief?',
-			answerOptions: [
-				{ answerText: 'A ) alt="Logo"', isCorrect: false },
-				{ answerText: 'B ) alt="Tweede Kamer Startpagina"', isCorrect: false },
-				{ answerText: 'C ) alt=""', isCorrect: false },
-				{ answerText: 'D ) alt="Logo Tweede Kamer Der Staten-Generaal - Startpagina"', isCorrect: true },
-			],
-			src: '',
-			alt: '',
-			answerCorrect: 'De afbeelding geeft informatie waardoor het alt attribuut niet mag worden leeggelaten. Daarnaast geeft het alt attribuut op deze manier duidelijk aan dat het logo doorlinkt naar de startpagina.',
-			answerIncorrect: 'Het juiste antwoord is antwoord D. De afbeelding geeft informatie en mag hierdoor niet leeggelaten worden. Daarnaast bevat de afbeelding een link naar de homepagina. Het is prettig voor de mensen met een visuele beperking als dit ook duidelijk wordt aangegeven.',
+			answerCorrect: 'De link bevat geen linktekst. Hierdoor wordt de funtie of het doel van de link door de voorleessoftware niet duidelijk gemaakt voor mensen met een visuele beperking.',
+			answerIncorrect: 'Als een link geen linktekst bevat, wordt het doel van de link door de voorleessoftware niet duidelijk gemaakt voor mensen met een visuele beperking.'
 		},
 	];
 
@@ -156,13 +128,13 @@ export default function QuizAltTags() {
 	return (
 		<div class="wrapper">
 			<Helmet>
-                <title>Quiz tekstalternatieven | Accessibility Training</title>
+                <title>Quiz Links | Accessibility Training</title>
             </Helmet>
 
 			<Row>
 				<div className="home-introduction hidden-hover col-lg-6 col-sm-12 col-xs-12">
 
-					<h1 class="u-text-title">Tekstalternatieven</h1>
+					<h1 class="u-text-title">Links</h1>
 
 					{showExplanation? (
 						<div>
@@ -273,19 +245,19 @@ export default function QuizAltTags() {
 					</div>
 
 					<div className="col-lg-6 col-sm-12 col-xs-12">
-						<h2 class="u-text-title">Afgeronde onderdelen (3/7)</h2>
+						<h2 class="u-text-title">Afgeronde onderdelen (4/7)</h2>
 
 						<ol>
 							<li>Kleurcontrast <FontAwesomeIcon icon={faCheckCircle} /></li>
 							<li>Tekst <FontAwesomeIcon icon={faCheckCircle} /></li>
 							<li>Tekstalternatieven <FontAwesomeIcon icon={faCheckCircle} /></li>
-							<li class="u-text-dissabled">Links</li>
+							<li>Links <FontAwesomeIcon icon={faCheckCircle} /></li>
 							<li class="u-text-dissabled">Labels</li>
 							<li class="u-text-dissabled">Buttons</li>
 							<li class="u-text-dissabled">Document language</li>
 						</ol>
 						<div class="btn-action">
-							<Link to="/links"><Button>Naar het volgende onderdeel</Button></Link>
+							<Link to="/labels"><Button>Naar het volgende onderdeel</Button></Link>
 						</div>
 					</div>
 				</Row>
