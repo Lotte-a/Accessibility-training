@@ -40,7 +40,9 @@ export default function QuizIntro() {
                         </ol> 
                     </div>
 
-                    <Button class="intro__button-start" onClick={handleCloseModal}>Start de video</Button>
+                    <div class="btn-action">
+                        <Button onClick={handleCloseModal}>Start de video</Button>
+                    </div>
                 </Modal>
 
                 <div className='player-wrapper'>
@@ -53,8 +55,8 @@ export default function QuizIntro() {
                     />
                 </div>
 
-                <div class="intro-btn hidden-hover">
-                    <Link to="/simulationOverview"><Button className="intro__button-next btn-orange">Volgende</Button></Link>
+                <div class="btn-float-right btn-action">
+                    <Link to="/simulationOverview"><Button>Volgende</Button></Link>
                 </div>
             </div>
         </div>

@@ -29,16 +29,24 @@ export default function QuizIntro() {
                         <div class="assignment">
                             <h2 class="u-text-title">Opdracht</h2>
                             <p class="u-text-assignment">Benieuwd naar hoe een persoon met visuele beperking een webshop waarneemt? Kies één van de verschillende soorten visuele beperkingen uit en ervaar het zelf!</p>
-                            <Link to="/quizOverview"><Button>Sla opdracht over</Button></Link>
+
+                            <div class="btn-action-end">
+                                <Link to="/quizOverview"><Button>Sla opdracht over</Button></Link>
+                            </div>
                         </div>
                     </div>
 
                     <div className="simulation__answers col-lg-6 col-sm-12 col-xs-12">
-                    <h2 class="u-text-title">Opties visuele beperkingen</h2>
-                    <Button href="https://accessibility-game.netlify.app/levels/6/intro/" target="blank" className="btn-choice">Slechtziend</Button><br/>
-                    <Button href="https://accessibility-game.netlify.app/levels/3/intro/" target="blank" className="btn-choice">Blind</Button>
-                    
-                    <Link to="/quizOverview"><Button className="btn-simulation">Volgende</Button></Link>
+                        <h2 class="u-text-title">Opties visuele beperkingen</h2>
+
+                        <div class="btn-option">
+                            <Button href="https://accessibility-game.netlify.app/levels/6/intro/" target="blank" className="btn-choice">Slechtziend</Button><br/>
+                            <Button href="https://accessibility-game.netlify.app/levels/3/intro/" target="blank" className="btn-choice">Blind</Button>
+                        </div>
+
+                        <div class="btn-action btn-float-right">
+                            <Link to="/quizOverview"><Button>Naar het volgende onderdeel</Button></Link>
+                        </div>
                     </div>
                 </Row>
 

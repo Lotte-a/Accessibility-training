@@ -17,7 +17,9 @@ const Home = () => (
 
             <p class="home__text">100% gratis training over het digitaal toegankelijk maken van websites/apps. Speciaal ontwikkeld voor ondernemers binnen het MKB.</p>
 
-            <Link to="/introduction"><Button className="home__button btn-orange">Start training</Button></Link>
+            <div class="btn-action">
+                <Link to="/introduction"><Button className="home__button">Start training</Button></Link>
+            </div>
         </div>
 
         <div className="home__image col-lg-6 col-sm-12 col-xs-12">

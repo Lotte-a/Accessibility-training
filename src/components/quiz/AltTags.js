@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Button, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
+import ImageScore from '../../images/score.png';
 import Logo from '../../images/logo.png';
 
 export default function QuizAltTags() {
@@ -9,37 +11,30 @@ export default function QuizAltTags() {
 	const Questions = [
 		{
 			questionText: 'Hier komt vraag 1',
-
 			answerOptions: [
 				{ answerText: 'A) New York', isCorrect: false },
 				{ answerText: 'B) London', isCorrect: false },
 				{ answerText: 'C) Paris', isCorrect: true },
 				{ answerText: 'D) Dublin', isCorrect: false },
 			],
-
 			src: Logo,
 			alt: '',
-
 			answerCorrect: 'Het antwoord is juist, omdat...',
 			answerIncorrect: 'Het antwoord is onjuist, omdat...'
 		},
 		{
 			questionText: 'Hier komt vraag 2',
-
 			answerOptions: [
 				{ answerText: 'New York', isCorrect: false },
 				{ answerText: 'London', isCorrect: true },
 			],
-
 			src: '',
 			alt: '',
-
 			answerCorrect: 'Het antwoord is juist, omdat...',
 			answerIncorrect: 'Het antwoord is onjuist, omdat...',
 		},
 		{
 			questionText: 'Hier komt vraag 2',
-
 			answerOptions: [
 				{ answerText: 'New York', isCorrect: false },
 				{ answerText: 'London', isCorrect: false },
@@ -48,50 +43,75 @@ export default function QuizAltTags() {
 			],
 			src: '',
 			alt: '',
-
 			answerCorrect: 'Het antwoord is juist, omdat...',
 			answerIncorrect: 'Het antwoord is onjuist, omdat...',
 		},
 	];
 
 	const [currentQuestion, setCurrentQuestion] = useState(0);
-	// const [optionChosen, setOptionChosen] = useState("");
-
-	const [showScore, setShowScore] = useState(false);
-	const [currentScore, setCurrentScore] = useState(0);
-
 	const [showQuestions, setShowQuestions] = useState(true);
+	const [showOptions, setShowOptions] = useState(true);
 	const [showCorrect, setShowCorrect] = useState(false);
 	const [showIncorrect, setShowIncorrect] = useState(false);
-
-	const [hidden, setHidden] = useState(false);
-
+	const [showCorrectLastOne, setShowCorrectLastOne] = useState(false);
+	const [showIncorrectLastOne, setShowIncorrectLastOne] = useState(false);
 	const [disabled, setDisabled] = useState(false);
+	const [showScore, setShowScore] = useState(false);
+	const [currentScore, setCurrentScore] = useState(0);
+	// const [btnColor, setBtnColor] = useState('blue');
 
 	// Show the explenation why an answer is correct or incorrect
 	const explenationQuestion = (isCorrect) => {
-
 		if (currentQuestion == 0) {
 			setDisabled(true);
 		} else {
 			setDisabled(false);
 		}
+
 		if (isCorrect) {
 			setCurrentScore(currentScore + 1);
 			setShowCorrect(true);
+			setShowIncorrectLastOne(false);
 			setShowQuestions(false);
+			setShowIncorrect(false);
+			setShowCorrectLastOne(false);
+			// setBtnColor('green');
 		} else {
 			setShowIncorrect(true);
+			setShowCorrect(false);
 			setShowQuestions(false);
+			setShowCorrectLastOne(false);
+			setShowIncorrectLastOne(false);
+			// setBtnColor('red');
 		}
 
-		//Als het de laatste vraag is
 		if (currentQuestion == Questions.length - 1) {
-			setShowScore(true);
-			setShowCorrect(false);
-			setShowIncorrect(false);
-			setShowQuestions(false);
+			if(isCorrect) {
+				setShowCorrectLastOne(true);
+				setShowIncorrectLastOne(false);
+				setShowCorrect(false);
+				setShowIncorrect(false);
+				setShowQuestions(false);
+				setShowOptions(false);
+			} else {
+				setShowIncorrectLastOne(true);
+				setShowCorrectLastOne(false);
+				setShowIncorrect(false);
+				setShowCorrect(false);
+				setShowQuestions(false);
+				setShowOptions(false);
+			}
 		}
+	}
+
+	const score = () => {
+		setShowScore(true);
+		setShowCorrectLastOne(false);
+		setShowIncorrectLastOne(false);
+		setShowCorrect(false);
+		setShowIncorrect(false);
+		setShowQuestions(false);
+		setShowOptions(false);
 	}
 
 	const nextQuestion = () => {
@@ -100,14 +120,19 @@ export default function QuizAltTags() {
 		setShowCorrect(false);
 		setShowIncorrect(false);
 		setShowScore(false);
+		setShowCorrectLastOne(false);
+		setShowIncorrectLastOne(false);
 	}
 
 	const previousQuestion = () => {
 		setCurrentQuestion(currentQuestion - 1);
 		setCurrentScore(currentScore - 1);
 		setShowQuestions(true);
+		setShowOptions(true);
 		setShowCorrect(false);
 		setShowIncorrect(false);
+		setShowCorrectLastOne(false);
+		setShowIncorrectLastOne(false);
 	}
 
 	const handleAnswerOptionClick = (isCorrect) => {
@@ -116,6 +141,9 @@ export default function QuizAltTags() {
 
 	return (
 		<div class="wrapper">
+			 <Helmet>
+                <title>Tekstalternatieven | Accessibility Training</title>
+            </Helmet>
 
 			<Row>
 				<div className="home-introduction hidden-hover col-lg-6 col-sm-12 col-xs-12">
@@ -136,8 +164,6 @@ export default function QuizAltTags() {
 					{showCorrect ? (
 						<div class="assignment">
 							<p class="u-text-assignment">{Questions[currentQuestion].answerCorrect}</p>
-							<Button onClick={previousQuestion} disabled={disabled}>Vorige</Button>
-							<Button onClick={nextQuestion}>Volgende</Button>
 						</div>
 					) : null}
 
@@ -149,19 +175,65 @@ export default function QuizAltTags() {
 							</div>
 						</div>
 					) : null}
+
+					{showCorrectLastOne ? (
+						<div>
+							<h1>Hoooii ik ben de laatste stap van de goeie</h1>
+							<div class="assignment">
+								<p class="u-text-assignment">{Questions[currentQuestion].answerCorrect}</p>
+							</div>
+							<div class="btn-action-left">
+								<Button disabled={disabled} onClick={previousQuestion}>Vorige</Button>
+							</div>
+							<div class="btn-action-end-right">
+								<Button onClick={score}>Onderdeel afronden</Button>
+							</div>
+						</div>
+					) : null}
+
+					{showIncorrectLastOne ? (
+						<div>
+							<div class="assignment">
+								<p class="u-text-assignment">{Questions[currentQuestion].answerIncorrect}</p>
+							</div>
+							<div class="btn-action-left">
+								<Button disabled={disabled} onClick={previousQuestion}>Vorige</Button>
+							</div>
+							<div class="btn-action-end-right">
+								<Button onClick={score}>Onderdeel afronden</Button>
+							</div> 
+						</div>
+					) : null}
 				</div>
 
 				<div className="home__image col-lg-6 col-sm-12 col-xs-12">
-					<h1 class="u-text-title">Antwoordopties</h1>
-					<div className='answer-section'>
-						{Questions[currentQuestion].answerOptions.map((answerOption) => (
-							<Button className="btn-choice" onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}</Button>
-						))}
-					</div>
-
-					{showIncorrect ? (
+					{showOptions ? (
 						<div>
+							<h1 class="u-text-title">Antwoordopties</h1>
+							<div className='answer-section'>
+								{Questions[currentQuestion].answerOptions.map((answerOption) => (
+									<div class="btn-option">
+										<Button 
+											// style={{background:btnColor}}
+											className="btn-option" 
+											onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}
+										</Button>
+									</div>
+								))}
+							</div>
+						</div>
+					) : null}
+				
+					{showIncorrect ? (
+						<div class="btn-action">
 							<Button disabled={disabled} onClick={previousQuestion}>Vorige</Button>
+							<Button className="btn-float-right" onClick={nextQuestion}>Volgende</Button>
+						</div>
+					) : null}
+
+					{showCorrect ? (
+						<div class="btn-action">
+							<Button onClick={previousQuestion} disabled={disabled}>Vorige</Button>
 							<Button className="btn-float-right" onClick={nextQuestion}>Volgende</Button>
 						</div>
 					) : null}
@@ -170,15 +242,17 @@ export default function QuizAltTags() {
 
 			{showScore ? (
 				<Row>
-					<div>
-					Op dit onderdeel heb je {currentScore} van de {Questions.length} goed beantwoord
-					<div>
-						<Link to="/introduction"><Button>Finish training</Button></Link>
-					</div>
+					<div className="col-lg-6 col-sm-12 col-xs-12">
+					<p class="u-text-score">Je hebt <strong>{currentScore}</strong> van de <strong>{Questions.length}</strong> vragen goed beantwoord!</p>
+						<div class="btn-action">
+							<Link to="/introduction"><Button>Door naar het volgende onderdeel</Button></Link>
+						</div>
 					</div>
 
+					<div className="col-lg-6 col-sm-12 col-xs-12">
+						<img class="image-score" src={ImageScore} />
+					</div>
 				</Row>
-				
 			) : null}
 		</div>
 	);
