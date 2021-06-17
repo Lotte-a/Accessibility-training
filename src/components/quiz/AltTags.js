@@ -36,7 +36,7 @@ export default function QuizAltTags() {
 			src: QuizImage1,
 			alt: 'Decoratieve afbeelding die geen informatie geeft',
 			answerCorrect: 'De afbeelding is een decoratieve afbeelding en geeft geen informatie. Hierdoor mag het alt attribuut worden leeggelaten, waardoor de afbeelding door de voorleessoftware wordt genegeerd.',
-			answerIncorrect: 'De afbeelding is een decoratieve afbeelding en geeft geen informatie. Om deze reden mag het alt atribuut leeg gelaten worden. Door het alt atribuut leeg te laten wordt de afbeelding door de voorleessoftware niet opgelezen. Hierdoor kunnen mensen met eenvisuele beperking de informatie raadplegen, zonder daarbij gestoord te hoeven worden.'
+			answerIncorrect: 'De afbeelding is een decoratieve afbeelding en geeft geen informatie. Om deze reden mag het alt atribuut leeg gelaten worden. Door het alt atribuut leeg te laten wordt de afbeelding door de voorleessoftware niet opgelezen. Hierdoor kunnen mensen met een visuele beperking de informatie raadplegen, zonder daarbij gestoord te hoeven worden.'
 		},
 		{
 			explanation: 'Een goed kleurcontrast tussen tekst en achtergrondkleur is belangrijk. Onvoldoende contrast maakt de tekst moeilijker leesbaar voor slechtzienden.',
