@@ -40,7 +40,7 @@ export default function QuizIntro() {
 
                         <div class="btn-option">
                             <Button href="https://accessibility-game.netlify.app/levels/6/intro/" target="blank" className="btn-choice">Slechtziend</Button><br/>
-                            <Button href="https://accessibility-training-final2.netlify.app/levels/3/intro/" target="blank" className="btn-choice">Blind</Button>
+                            <Button href="https://accessibility-training-final2.netlify.app/levels/3/intro/" className="btn-choice">Blind</Button>
                         </div>
 
                         <div class="btn-action btn-float-right">
