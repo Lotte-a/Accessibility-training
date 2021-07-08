@@ -1,11 +1,20 @@
 /* ------------------------------------------------------------ */
 
 // Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {  
+@media (min-width: 576px) { 
+
 }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
+
+    .home__title {
+        margin-top: 8rem!important;
+    }
+
+    .margin-top__title {
+        margin-top: 0!important;
+    }
 
     .navbar {
         &__logo {
@@ -50,7 +59,21 @@
 }
 
 // Large devices (desktops, 992px and up)
-@media (min-width: 992px) { }
+@media (min-width: 992px) {
+    .home__title {
+        margin-top: 8rem!important;
+    }
+    .margin-top__title {
+        margin-top: 0!important;
+    }
+}
 
 // Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) { }
+@media (min-width: 1200px) { 
+    .home__title {
+        margin-top: 8rem!important;
+    }
+    .margin-top__title {
+        margin-top: 0!important;
+    }
+}

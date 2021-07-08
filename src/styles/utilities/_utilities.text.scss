@@ -20,6 +20,12 @@ $txt: u-text-;
     font-size: $font-size-assigment;
 }
 
+.#{$txt}introduction{
+    font-family:  $font-family-base;
+    font-size: $font-size-introduction;
+    
+}
+
 .#{$txt}description{
     font-family: $font-family-base;
     font-size: $font-size-description;
@@ -34,6 +40,7 @@ $txt: u-text-;
 .#{$txt}assignment-length {
     color: $color-gray;
     font-weight: $font-weight-medium;
+    font-size: $font-size-introduction;
 }
 
 .#{$txt}score {

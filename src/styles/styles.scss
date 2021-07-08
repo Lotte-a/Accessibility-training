@@ -37,6 +37,11 @@ a:hover{
     }
 }
 
+a.btn.btn-primary{
+    text-decoration: none!important;
+}
+
+
 .btn-action, .btn-action-left {
     .btn-primary {
         background-color: $color-orange!important; 
@@ -127,5 +132,18 @@ a:hover{
 }
 
 .image-quiz {
-    margin-top: 1.8rem;
+    margin-top: 1rem;
+    margin-bottom: 0.3rem;
+}
+
+.quiz__assignment {
+   margin-top: 2rem;
+}
+
+.btn-action, .btn-action-end-right, .btn-action-left {
+    margin-top: 1rem;
+}
+
+.home__title, .margin-top__title {
+    margin-top: 1.5rem;
 }
