@@ -50,7 +50,7 @@ export default function QuizIntro() {
                 <div className='player-wrapper'>
                     <ReactPlayer
                         className='react-player'
-                        url='https://youtu.be/cBsES4hgNsw'
+                        url='https://youtu.be/QGxL2tTm-2A'
                         width='100%'
                         height='100%'
                         playing={autoPlay}
