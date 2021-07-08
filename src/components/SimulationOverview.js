@@ -14,7 +14,7 @@ export default function QuizIntro() {
 
                 <Row>
                     <div className="simulation__introduction col-lg-6 col-sm-12 col-xs-12">
-                        <h1 class="u-text-title">Soorten visuele beperkingen</h1>
+                        <h1 class="u-text-title margin-top__title">Soorten visuele beperkingen</h1>
 
                         <ul class="vision-description">
                             <li><strong>Slechtziend</strong> - Gezichtsscherpte minder dan 30%</li>
@@ -29,14 +29,14 @@ export default function QuizIntro() {
                         <div class="assignment">
                             <h2 class="u-text-title">Opdracht</h2>
                             <p class="u-text-assignment">Benieuwd naar hoe een persoon met visuele beperking een webshop waarneemt? Kies één van de verschillende soorten visuele beperkingen uit en ervaar het zelf!</p>
-                            {/* <div class="btn-action-end">
+                            <div class="btn-action-end">
                                 <Link to="/quizOverview"><Button>Sla opdracht over</Button></Link>
-                            </div> */}
+                            </div>
                         </div>
                     </div>
 
                     <div className="simulation__answers col-lg-6 col-sm-12 col-xs-12">
-                        <h2 class="u-text-title">Opties visuele beperkingen</h2>
+                        <h2 class="u-text-title margin-top__title">Opties visuele beperkingen</h2>
 
                         <div class="btn-option">
                             <Button href="https://accessibility-game.netlify.app/levels/6/intro/" target="blank" className="btn-choice">Slechtziend</Button><br/>
