@@ -39,7 +39,7 @@ export default function QuizIntro() {
                         <h2 class="u-text-title margin-top__title">Opties visuele beperkingen</h2>
 
                         <div class="btn-option">
-                            <Button href="https://accessibility-game.netlify.app/levels/6/intro/" target="blank" className="btn-choice">Slechtziend</Button><br/>
+                            <Button href="https://accessibility-training-final2.netlify.app/levels/6/intro/" className="btn-choice">Slechtziend</Button><br/>
                             <Button href="https://accessibility-training-final2.netlify.app/levels/3/intro/" className="btn-choice">Blind</Button>
                         </div>
 
