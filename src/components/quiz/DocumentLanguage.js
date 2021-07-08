@@ -11,14 +11,14 @@ export default function DocumentLanguage() {
 	const Questions = [
 		{	
 			explanation: '',
-			questionText: 'De volgende code kan invloed hebben op de toegankelijkheid van een webpagina. <html lang="es"></html>',
+			questionText: 'Stelling: op iedere webpagina moet in de code aangegeven worden welke taal de pagina bevat.',
 			answerOptions: [
 				{ answerText: 'A ) De stelling is juist', isCorrect: true },
 				{ answerText: 'B ) De stelling is onjuist', isCorrect: false },
 			],
 			src: '',
 			alt: '',
-			answerCorrect: 'Personen die voorleessoftware gebruiken, selecteren een standaard taal. Als de taal van een webpagina niet is vastgesteld, dan behoudt de voorleessoftware de standaard ingestelde taal. Als de default taal dan bijvoorbeeld in het Engels is ingesteld, maar de taal van de pagina Spaans is, dan kan dit raar gedrag verzoorzaken.',
+			answerCorrect: 'Personen die voorleessoftware gebruiken, selecteren een standaard taal. Als de taal van een webpagina niet is vastgesteld, dan behoudt de voorleessoftware de standaard ingestelde taal. Als de default taal dan bijvoorbeeld in het Engels is ingesteld, maar de taal van de pagina Spaans is, dan kan dit raar gedrag veroorzaken.',
 			answerIncorrect: 'De ingestelde taal van een webpagina heeft invloed op de voorleessoftware. Personen die voorleessoftware gebruiken, selecteren een standaard taal. Als de taal van een webpagina niet is vastgesteld, dan behoudt de voorleessoftware de standaard ingestelde taal. Als de default taal dan bijvoorbeeld in het Engels is ingsteld, maar de taal van de pagina Spaans is, dan kan dit raar gedrag verzoorzaken.'
 		},
 	];
@@ -142,9 +142,9 @@ export default function DocumentLanguage() {
 
 					{/* Laat de vragen zien met de bijbehordende keuzes */}
 					{showQuestions ? (
-						<div>
+						<div class="quiz__assignment">
 							<div class="assignment">
-								<span class="u-text-assignment-length">Oefening {currentQuestion + 1}/{Questions.length}</span>
+								<h2 class="u-text-assignment-length">Oefening {currentQuestion + 1}/{Questions.length}</h2>
 								<div className='u-text-assignment'>{Questions[currentQuestion].questionText}</div>
 								<img class="image-assignment image-quiz" src={Questions[currentQuestion].src} alt={Questions[currentQuestion].alt} />
 							</div>
@@ -152,7 +152,7 @@ export default function DocumentLanguage() {
 					) : null}
 
 					{showCorrect ? (
-						<div class="assignment">
+						<div class="assignment quiz__assignment">
 							<p class="u-text-correct"><FontAwesomeIcon icon={faCheckCircle} /> Het antwoord is juist!</p>
 							<p class="u-text-description">{Questions[currentQuestion].answerCorrect}</p>
 						</div>
@@ -161,8 +161,8 @@ export default function DocumentLanguage() {
 					{/* Laat de uitleg zien waarom het antwoord FOUT is */}
 					{showIncorrect ? (
 						<div>
-							<div class="assignment">
-								<p class="u-text-incorrect"><FontAwesomeIcon icon={faTimesCircle} /> Het antwoord is onjuist..</p>
+							<div class="assignment quiz__assignment">
+								<p class="u-text-incorrect"><FontAwesomeIcon icon={faTimesCircle} /> Het antwoord is onjuist</p>
 								<p class="u-text-description">{Questions[currentQuestion].answerIncorrect}</p>
 							</div>
 						</div>
@@ -170,7 +170,7 @@ export default function DocumentLanguage() {
 
 					{showCorrectLastOne ? (
 						<div>
-							<div class="assignment">
+							<div class="assignment quiz__assignment">
 								<p class="u-text-correct"><FontAwesomeIcon icon={faCheckCircle} /> Het antwoord is juist!</p>
 								<p class="u-text-assignment">{Questions[currentQuestion].answerCorrect}</p>
 							</div>
@@ -185,8 +185,8 @@ export default function DocumentLanguage() {
 
 					{showIncorrectLastOne ? (
 						<div>
-							<div class="assignment">
-								<p class="u-text-incorrect"><FontAwesomeIcon icon={faTimesCircle} /> Het antwoord is onjuist..</p>
+							<div class="assignment quiz__assignment">
+								<p class="u-text-incorrect"><FontAwesomeIcon icon={faTimesCircle} /> Het antwoord is onjuist</p>
 								<p class="u-text-assignment">{Questions[currentQuestion].answerIncorrect}</p>
 							</div>
 							<div class="btn-action-left">
@@ -202,7 +202,7 @@ export default function DocumentLanguage() {
 				<div className="home__image col-lg-6 col-sm-12 col-xs-12">
 					{showOptions ? (
 						<div>
-							<h1 class="u-text-title">Antwoordopties</h1>
+							<h2 class="u-text-title margin-top__title">Antwoordopties</h2>
 							<div className='answer-section'>
 								{Questions[currentQuestion].answerOptions.map((answerOption) => (
 									<div class="btn-option">

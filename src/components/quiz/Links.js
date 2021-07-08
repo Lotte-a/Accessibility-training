@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
 import ImageScore from '../../images/score.png';
-import QuizImage1 from '../../images/quiz-image-1.png';
+import QuizImage3 from '../../images/quiz-image-3.jpg';
+import QuizImage4 from '../../images/quiz-image-4.jpg';
 
 import { faCheckCircle, faTimesCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,16 +14,30 @@ export default function Links() {
 
 	const Questions = [
 		{	
-			explanation: '',
-			questionText: 'Stelling: in de volgende code wordt een klikbaar icoon op een toegankelijke manier geplaatst: <a href="http.//www.shopping.com"><span class="fa fa-twitter"></span></a>',
+			explanation: 'Mensen met een visuele beperking maken veel gebruik van de steltoets ‘K’, waarmee ze een lijst met links van een website weergeven en laten voorlezen doormiddel van voorleessoftware.',
+			questionText: 'Stelling: Op onderstaande afbeelding wordt er op een toegankelijke manier gebruik gemaakt van links',
 			answerOptions: [
 				{ answerText: 'A ) De stelling is juist', isCorrect: false },
 				{ answerText: 'B ) De stelling is onjuist', isCorrect: true },
 			],
-			src: '',
-			alt: '',
-			answerCorrect: 'De link bevat geen linktekst. Hierdoor wordt de funtie of het doel van de link door de voorleessoftware niet duidelijk gemaakt voor mensen met een visuele beperking.',
-			answerIncorrect: 'Als een link geen linktekst bevat, wordt het doel van de link door de voorleessoftware niet duidelijk gemaakt voor mensen met een visuele beperking.'
+			src: QuizImage3,
+			alt: 'Nieuwsoverzicht met lees meer knoppen',
+			answerCorrect: 'Voor een voorleessoftware gebruiker is het verwarrend als het niet duidelijk is waar links naar verwijzen. Zorg er voor dat een link altijd verteld waar je naar toe gaat of wat er gaat gebeuren en maak gebruik van unieke namen op een pagina. Een goed voorbeeld van een link is: ‘Lees meer over scholen’',
+			answerIncorrect: 'Voor een voorleessoftware gebruiker is het verwarrend als het niet duidelijk is waar links naar verwijzen. Zorg er voor dat een link altijd verteld waar je naar toe gaat of wat er gaat gebeuren en maak gebruik van unieke namen op een pagina. Een goed voorbeeld van een link is: ‘Lees meer over scholen’'
+		},
+		{	
+			explanation: '',
+			questionText: 'Hoeveel links bevat onderstaande afbeelding?',
+			answerOptions: [
+				{ answerText: 'A ) Twee', isCorrect: false },
+				{ answerText: 'B ) De afbeelding bevat geen links', isCorrect: false },
+				{ answerText: 'B ) Vier', isCorrect: true },
+				{ answerText: 'B ) Geen idee', isCorrect: false },
+			],
+			src: QuizImage4,
+			alt: 'Tekst waarvan alle woorden dezelfde kleur bevatten',
+			answerCorrect: 'Ondanks dat je het goed hebt geraden, is het belangrijk dat je het gebruik van alleen kleur vermijdt en altijd een tweede aanwijzing geeft. Mensen die kleurenblind zijn kunnen hierdoor soms niet het verschil zien tussen een tekst en een link. Geef links bijvoorbeeld aan door er een lijntje onder te plaatsen.',
+			answerIncorrect: 'De afbeelding bevat vier links. Vermijd het gebruik van alleen kleur en geef altijd een tweede aanwijzing. Mensen die kleurenblind zijn kunnen hierdoor soms niet het verschil zien tussen een tekst en een link. Geef links bijvoorbeeld aan door er een lijntje onder te plaatsen.'
 		},
 	];
 
@@ -145,9 +160,9 @@ export default function Links() {
 
 					{/* Laat de vragen zien met de bijbehordende keuzes */}
 					{showQuestions ? (
-						<div>
+						<div class="quiz__assignment">
 							<div class="assignment">
-								<span class="u-text-assignment-length">Oefening {currentQuestion + 1}/{Questions.length}</span>
+								<h2 class="u-text-assignment-length">Oefening {currentQuestion + 1}/{Questions.length}</h2>
 								<div className='u-text-assignment'>{Questions[currentQuestion].questionText}</div>
 								<img class="image-assignment image-quiz" src={Questions[currentQuestion].src} alt={Questions[currentQuestion].alt} />
 							</div>
@@ -155,7 +170,7 @@ export default function Links() {
 					) : null}
 
 					{showCorrect ? (
-						<div class="assignment">
+						<div class="assignment quiz__assignment">
 							<p class="u-text-correct"><FontAwesomeIcon icon={faCheckCircle} /> Het antwoord is juist!</p>
 							<p class="u-text-description">{Questions[currentQuestion].answerCorrect}</p>
 						</div>
@@ -164,8 +179,8 @@ export default function Links() {
 					{/* Laat de uitleg zien waarom het antwoord FOUT is */}
 					{showIncorrect ? (
 						<div>
-							<div class="assignment">
-								<p class="u-text-incorrect"><FontAwesomeIcon icon={faTimesCircle} /> Het antwoord is onjuist..</p>
+							<div class="assignment quiz__assignment">
+								<p class="u-text-incorrect"><FontAwesomeIcon icon={faTimesCircle} /> Het antwoord is onjuist</p>
 								<p class="u-text-description">{Questions[currentQuestion].answerIncorrect}</p>
 							</div>
 						</div>
@@ -173,7 +188,7 @@ export default function Links() {
 
 					{showCorrectLastOne ? (
 						<div>
-							<div class="assignment">
+							<div class="assignment quiz__assignment">
 								<p class="u-text-correct"><FontAwesomeIcon icon={faCheckCircle} /> Het antwoord is juist!</p>
 								<p class="u-text-assignment">{Questions[currentQuestion].answerCorrect}</p>
 							</div>
@@ -188,8 +203,8 @@ export default function Links() {
 
 					{showIncorrectLastOne ? (
 						<div>
-							<div class="assignment">
-								<p class="u-text-incorrect"><FontAwesomeIcon icon={faTimesCircle} /> Het antwoord is onjuist..</p>
+							<div class="assignment quiz__assignment">
+								<p class="u-text-incorrect"><FontAwesomeIcon icon={faTimesCircle} /> Het antwoord is onjuist</p>
 								<p class="u-text-assignment">{Questions[currentQuestion].answerIncorrect}</p>
 							</div>
 							<div class="btn-action-left">
@@ -205,7 +220,7 @@ export default function Links() {
 				<div className="home__image col-lg-6 col-sm-12 col-xs-12">
 					{showOptions ? (
 						<div>
-							<h1 class="u-text-title">Antwoordopties</h1>
+							<h2 class="u-text-title margin-top__title">Antwoordopties</h2>
 							<div className='answer-section'>
 								{Questions[currentQuestion].answerOptions.map((answerOption) => (
 									<div class="btn-option">
@@ -245,9 +260,9 @@ export default function Links() {
 					</div>
 
 					<div className="col-lg-6 col-sm-12 col-xs-12">
-						<h2 class="u-text-title">Afgeronde onderdelen (4/7)</h2>
+						<h2 class="u-text-title margin-top__title">Afgeronde onderdelen (4/7)</h2>
 
-						<ol>
+						<ol aria-hidden="true">
 							<li>Kleurcontrast <FontAwesomeIcon icon={faCheckCircle} /></li>
 							<li>Tekst <FontAwesomeIcon icon={faCheckCircle} /></li>
 							<li>Tekstalternatieven <FontAwesomeIcon icon={faCheckCircle} /></li>

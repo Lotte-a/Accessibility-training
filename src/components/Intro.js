@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { Button, Container } from 'react-bootstrap';
 import Modal from 'react-modal';
+import $ from "jquery";
 
 import ReactPlayer from 'react-player/youtube'
+
 export default function QuizIntro() {
 
     const [closeModal, setCloseModal] = useState(true);

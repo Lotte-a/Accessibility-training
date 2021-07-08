@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
 import ImageScore from '../../images/score.png';
+import QuizImage0 from '../../images/quiz-image-0.jpg';
+import QuizImage1 from '../../images/quiz-image-1.jpg';
 
 import { faCheckCircle, faTimesCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,18 +14,28 @@ export default function QuizAltTags() {
 
 	const Questions = [
 		{	
-			explanation: 'Op websites en apps moet lichte tekst een donkere achtergrond hebben en donkere tekst een lichte achtergrond. Anders is de leesbaarheid onvoldoende voor gebruikers die kleurenblind of slechtziend zijn',
-			questionText: 'Welk kleurcontrast moet een tekst die kleiner is dan 14 pt. minimaal bevatten in combinatie met de achtergrondkleur?',
+			explanation: 'Bij de kleuren van een tekst in combinatie met de achtergrond moet er rekening worden gehouden met een contrast ratio. Een te laag contrast kan ervoor zorgen dat de leesbaarheid onvoldoende is voor gebruikers die kleurenblind of slechtziend zijn. De contrast ratio geeft een waarde aan tussen 2 kleuren. Wanneer er geen contrast is, is de waarde 1:1. Bij een maximaal contrast (zwart op wit) is dat 21:1.',
+			questionText: 'Stelling: de tekst die hieronder is afgebeeld, bevat een hoog genoeg contrast',
 			answerOptions: [
-				{ answerText: 'A ) 4,5:1', isCorrect: true },
-				{ answerText: 'B ) 3:1', isCorrect: false },
-				{ answerText: 'C ) 2,5:2', isCorrect: false },
-				{ answerText: 'D ) 1:4', isCorrect: false },
+				{ answerText: 'A ) De stelling is juist', isCorrect: false },
+				{ answerText: 'B ) De stelling is onjuist', isCorrect: true },
 			],
-			src: '',
-			alt: '',
-			answerCorrect: 'Teksten die kleiner zijn dan 14 pt. hebben een minimale kleurcontrast nodig van 4,5:1. Teksten met grotere letters (18pt. of 14pt. als het vetgedrukt is) en grotere pictogrammen, hebben slechts een kleurcontrast van 3:1 nodig. Om erachter te komen hoe hoog het contrast is tussen twee kleuren, kun je de kleuren invoeren in speciale tools die dit berekenen. Een voorbeeld van een tool is de Colour Contrast Analyser.',
-			answerIncorrect: 'Het juiste antwoord is antwoord A. Teksten die kleiner zijn dan 14 pt. hebben een minimale kleurcontrast nodig van 4,5:1. Teksten met grotere letters (18pt. of 14pt. als het vetgedrukt is) en grotere pictogrammen, hebben slechts een kleurcontrast van 3:1 nodig. Om erachter te komen hoe hoog het contrast is tussen twee kleuren, kun je de kleuren invoeren in speciale tools die dit berekenen. Een voorbeeld van een tool is de Colour Contrast Analyser.'
+			src: QuizImage0,
+			alt: 'Witte tekst op een afbeelding waarbij de witte tekst gedeeltelijk wegvalt in de achtergrond',
+			answerCorrect: 'Teksten die kleiner zijn dan 14 pt. hebben een minimaal contrast ratio nodig van 4,5:1. Teksten met grotere letters (18pt. of 14pt. als het vetgedrukt is) en grotere pictogrammen, hebben slechts een contrast ratio van 3:1 nodig. Om erachter te komen hoe hoog het contrast is tussen twee kleuren, kun je de kleuren invoeren in speciale tools die dit berekenen. Een voorbeeld van een tool is de Colour Contrast Analyser.',
+			answerIncorrect: 'De tekst bevat geen hoog genoeg contrast in combinatie met de achtergrond. Teksten die kleiner zijn dan 14 pt. hebben een minimaal contrast ratio nodig van 4,5:1. Teksten met grotere letters (18pt. of 14pt. als het vetgedrukt is) en grotere pictogrammen, hebben slechts een contrast ratio van 3:1 nodig. Om erachter te komen hoe hoog het contrast is tussen twee kleuren, kun je de kleuren invoeren in speciale tools die dit berekenen. Een voorbeeld van een tool is de Colour Contrast Analyser.'
+		},
+		{	
+			explanation: '',
+			questionText: 'Stelling: de tekst die hieronder is afgebeeld, bevat een hoog genoeg contrast (de tekst is kleiner dan 14 pt)',
+			answerOptions: [
+				{ answerText: 'A ) De stelling is juist', isCorrect: false },
+				{ answerText: 'B ) De stelling is onjuist', isCorrect: true },
+			],
+			src: QuizImage1,
+			alt: 'Groene tekst op een witte achtergrond. De tekst bevat een contrast ratio van 3,0:1',
+			answerCorrect: 'De tekst bevat een contrast ratio van 3,0:1 en is daarom niet hoog genoeg. Teksten die kleiner zijn dan 14 pt. hebben een minimaal contrast ratio nodig van 4,5:1.',
+			answerIncorrect: 'De tekst bevat een contrast ratio van 3,0:1 in combinatie met de achtergrond. De tekst is kleiner dan 14 pt. en moet daarom minimaal een contrast ratio bevatten van 4,5:1. Controleer het contrast altijd voor de zekerheid met behulp van een tool zoals de Colour Contrast Analyser'
 		}
 	];
 
@@ -38,7 +50,6 @@ export default function QuizAltTags() {
 	const [showScore, setShowScore] = useState(false);
 	const [currentScore, setCurrentScore] = useState(0);
 	const [showExplanation, setShowExplanation] = useState(true);
-	// const [btnColor, setBtnColor] = useState('blue');
 
 	// Show the explenation why an answer is correct or incorrect
 	const explenationQuestion = (isCorrect) => {
@@ -56,7 +67,6 @@ export default function QuizAltTags() {
 			setShowExplanation(false);
 			setShowIncorrect(false);
 			setShowCorrectLastOne(false);
-			// setBtnColor('green');
 		} else {
 			setShowIncorrect(true);
 			setShowCorrect(false);
@@ -64,7 +74,6 @@ export default function QuizAltTags() {
 			setShowExplanation(false);
 			setShowCorrectLastOne(false);
 			setShowIncorrectLastOne(false);
-			// setBtnColor('red');
 		}
 
 		if (currentQuestion == Questions.length - 1) {
@@ -146,17 +155,17 @@ export default function QuizAltTags() {
 
 					{/* Laat de vragen zien met de bijbehordende keuzes */}
 					{showQuestions ? (
-						<div>
+						<div class="quiz__assignment">
 							<div class="assignment">
-								<span class="u-text-assignment-length">Oefening {currentQuestion + 1}/{Questions.length}</span>
+								<h2 class="u-text-assignment-length">Oefening {currentQuestion + 1}/{Questions.length}</h2>
 								<div className='u-text-assignment'>{Questions[currentQuestion].questionText}</div>
-								<img class="image-assignment" src={Questions[currentQuestion].src} alt={Questions[currentQuestion].alt} />
+								<img class="image-assignment image-quiz" src={Questions[currentQuestion].src} alt={Questions[currentQuestion].alt} />
 							</div>
 						</div>
 					) : null}
 
 					{showCorrect ? (
-						<div class="assignment">
+						<div class="assignment quiz__assignment">
 							<p class="u-text-correct"><FontAwesomeIcon icon={faCheckCircle} /> Het antwoord is juist!</p>
 							<p class="u-text-description">{Questions[currentQuestion].answerCorrect}</p>
 						</div>
@@ -165,8 +174,8 @@ export default function QuizAltTags() {
 					{/* Laat de uitleg zien waarom het antwoord FOUT is */}
 					{showIncorrect ? (
 						<div>
-							<div class="assignment">
-								<p class="u-text-incorrect"><FontAwesomeIcon icon={faTimesCircle} /> Het antwoord is onjuist..</p>
+							<div class="assignment quiz__assignment">
+								<p class="u-text-incorrect"><FontAwesomeIcon icon={faTimesCircle} /> Het antwoord is onjuist</p>
 								<p class="u-text-description">{Questions[currentQuestion].answerIncorrect}</p>
 							</div>
 						</div>
@@ -174,7 +183,7 @@ export default function QuizAltTags() {
 
 					{showCorrectLastOne ? (
 						<div>
-							<div class="assignment">
+							<div class="assignment quiz__assignment">
 								<p class="u-text-correct"><FontAwesomeIcon icon={faCheckCircle} /> Het antwoord is juist!</p>
 								<p class="u-text-assignment">{Questions[currentQuestion].answerCorrect}</p>
 							</div>
@@ -189,8 +198,8 @@ export default function QuizAltTags() {
 
 					{showIncorrectLastOne ? (
 						<div>
-							<div class="assignment">
-								<p class="u-text-incorrect"><FontAwesomeIcon icon={faTimesCircle} /> Het antwoord is onjuist..</p>
+							<div class="assignment quiz__assignment">
+								<p class="u-text-incorrect"><FontAwesomeIcon icon={faTimesCircle} /> Het antwoord is onjuist</p>
 								<p class="u-text-assignment">{Questions[currentQuestion].answerIncorrect}</p>
 							</div>
 							<div class="btn-action-left">
@@ -206,7 +215,7 @@ export default function QuizAltTags() {
 				<div className="home__image col-lg-6 col-sm-12 col-xs-12">
 					{showOptions ? (
 						<div>
-							<h1 class="u-text-title">Antwoordopties</h1>
+							<h2 class="u-text-title margin-top__title">Antwoordopties</h2>
 							<div className='answer-section'>
 								{Questions[currentQuestion].answerOptions.map((answerOption) => (
 									<div class="btn-option">
@@ -246,9 +255,9 @@ export default function QuizAltTags() {
 					</div>
 
 					<div className="col-lg-6 col-sm-12 col-xs-12">
-						<h2 class="u-text-title">Afgeronde onderdelen (2/7)</h2>
+						<h2 class="u-text-title margin-top__title">Afgeronde onderdelen (2/7)</h2>
 
-						<ol>
+						<ol aria-hidden="true">
 							<li>Kleurcontrast <FontAwesomeIcon icon={faCheckCircle} /></li>
 							<li>Tekst <FontAwesomeIcon icon={faCheckCircle} /></li>
 							<li class="u-text-dissabled">Tekstalternatieven</li>

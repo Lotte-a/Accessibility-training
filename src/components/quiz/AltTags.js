@@ -13,7 +13,7 @@ export default function QuizAltTags() {
 
 	const Questions = [
 		{	
-			explanation: 'De alt tag is een attribuut van een afbeelding. Het bestaat uit tekst die de content van de afbeelding beschrijft. De alt tag kan worden voorgelezen door voorleessofware, waardoor een persoon die blind is, in staat is om te begrijpen wat er op de afbeelding staat. Dit is een voorbeeld van een alt tag in code <img src="ondernemer.jpg" alt="ondernemer">',
+			explanation: 'De alt tag is een attribuut van een afbeelding. Het bestaat uit tekst die de content van de afbeelding beschrijft. De alt tag kan worden voorgelezen door voorleessofware, waardoor een persoon die blind is, in staat is om te begrijpen wat er op de afbeelding staat. Dit is een voorbeeld van een alt tag in code <img src="ondernemer.jpg" alt="ondernemer"> Een CMS systeem zoals Wordpress biedt vaak de optie aan waarbij je een tekstalternatief ook zonder code aan een afbeelding kunt toevoegen.',
 			questionText: 'Stelling: bij een decoratieve afbeelding mag het alt atribuut worden weggelaten',
 			answerOptions: [
 				{ answerText: 'A ) De stelling is juist', isCorrect: false },
@@ -21,11 +21,11 @@ export default function QuizAltTags() {
 			],
 			src: '',
 			alt: '',
-			answerCorrect: 'Aan een afbeelding moet altijd een alt attribuut worden toegevoegd. Hierdoor wordt voorkomen dat de voorleessoftware de soms lange en moeilijk te begrijpen bestandsnaam van de afbeelding gaat voorlezen, die verwarring kan veroorzaken bij mensen met een visuele beperking.',
-			answerIncorrect: 'Aan een afbeelding moet altijd een alt attribuut worden toegevoegd, ook wanneer deze geen informatie geeft. Door het alt atribuut leeg te laten, negeert de voorleessoftware de afbeelding. Hierdoor wordt voorkomen dat de voorleessoftware de soms lange en moeilijk te begrijpen bestandsnaam van de afbeelding gaat voorlezen, die verwarring kan veroorzaken bij mensen met een visuele beperking.'
+			answerCorrect: 'Aan een afbeelding moet altijd een alt attribuut worden toegevoegd. Wel mag het alt attribuut bij een decoratieve afbeelding worden leeggelaten. Hierdoor wordt voorkomen dat de voorleessoftware de soms lange en moeilijk te begrijpen bestandsnaam van de afbeelding gaat voorlezen, die verwarring kan veroorzaken bij mensen met een visuele beperking.',
+			answerIncorrect: 'Aan een afbeelding moet altijd een alt attribuut worden toegevoegd, ook wanneer deze geen informatie geeft. Wel mag het alt attribuut bij een decoratieve afbeelding worden leeggelaten. Door het alt atribuut leeg te laten, negeert de voorleessoftware de afbeelding. Hierdoor wordt voorkomen dat de voorleessoftware de soms lange en moeilijk te begrijpen bestandsnaam van de afbeelding gaat voorlezen, die verwarring kan veroorzaken bij mensen met een visuele beperking.'
 		},
 		{
-			explanation: 'De alt tag is een attribuut van een afbeelding. Het bestaat uit tekst die de content van de afbeelding beschrijft. De alt tag kan worden voorgelezen door voorleessofware, waardoor een persoon die blind is, in staat is om te begrijpen wat er op de afbeelding staat. Dit is een voorbeeld van een alt tag in code <img src="ondernemer.jpg" alt="ondernemer">',
+			explanation: '',
 			questionText: 'Wat is een goed tekstalternatief voor onderstaande afbeelding? (nieuwsoverzicht)',
 			answerOptions: [
 				{ answerText: 'A ) alt="winkelwagen"', isCorrect: false },
@@ -36,14 +36,14 @@ export default function QuizAltTags() {
 			src: QuizImage1,
 			alt: 'Decoratieve afbeelding die geen informatie geeft',
 			answerCorrect: 'De afbeelding is een decoratieve afbeelding en geeft geen informatie. Hierdoor mag het alt attribuut worden leeggelaten, waardoor de afbeelding door de voorleessoftware wordt genegeerd.',
-			answerIncorrect: 'De afbeelding is een decoratieve afbeelding en geeft geen informatie. Om deze reden mag het alt atribuut leeg gelaten worden. Door het alt atribuut leeg te laten, wordt de afbeelding door de voorleessoftware niet opgelezen. Hierdoor kunnen mensen met een visuele beperking de informatie raadplegen, zonder daarbij gestoord te hoeven worden.'
+			answerIncorrect: 'De afbeelding is een decoratieve afbeelding en geeft geen informatie. Om deze reden mag het alt atribuut leeg gelaten worden. Door het alt atribuut leeg te laten, wordt de afbeelding door de voorleessoftware genegeerd en niet opgelezen. Hierdoor kunnen mensen met een visuele beperking de informatie raadplegen, zonder daarbij gestoord te hoeven worden.'
 		},
 		{
-			explanation: 'Een goed kleurcontrast tussen tekst en achtergrondkleur is belangrijk. Onvoldoende contrast maakt de tekst moeilijker leesbaar voor slechtzienden.',
-			questionText: 'De afbeelding van het logo van de Tweede Kamer Der Staten-Generaal staat links bovenaan de website. Het is ook een link naar de homepagina. Wat is het beste tekstalternatief?',
+			explanation: '',
+			questionText: 'Stel: de afbeelding van het logo van de Tweede Kamer Der Staten-Generaal staat links bovenaan de website. Het is ook een link naar de homepagina. Wat is het beste tekstalternatief?',
 			answerOptions: [
 				{ answerText: 'A ) alt="Logo"', isCorrect: false },
-				{ answerText: 'B ) alt="Tweede Kamer Startpagina"', isCorrect: false },
+				{ answerText: 'B ) alt="Tweede Kamer"', isCorrect: false },
 				{ answerText: 'C ) alt=""', isCorrect: false },
 				{ answerText: 'D ) alt="Logo Tweede Kamer Der Staten-Generaal - Startpagina"', isCorrect: true },
 			],
@@ -83,7 +83,6 @@ export default function QuizAltTags() {
 			setShowExplanation(false);
 			setShowIncorrect(false);
 			setShowCorrectLastOne(false);
-			// setBtnColor('green');
 		} else {
 			setShowIncorrect(true);
 			setShowCorrect(false);
@@ -91,7 +90,6 @@ export default function QuizAltTags() {
 			setShowExplanation(false);
 			setShowCorrectLastOne(false);
 			setShowIncorrectLastOne(false);
-			// setBtnColor('red');
 		}
 
 		if (currentQuestion == Questions.length - 1) {
@@ -160,7 +158,7 @@ export default function QuizAltTags() {
             </Helmet>
 
 			<Row>
-				<div className="home-introduction hidden-hover col-lg-6 col-sm-12 col-xs-12">
+				<div tabindex="-1" className="home-introduction hidden-hover col-lg-6 col-sm-12 col-xs-12">
 
 					<h1 class="u-text-title">Tekstalternatieven</h1>
 
@@ -173,9 +171,9 @@ export default function QuizAltTags() {
 
 					{/* Laat de vragen zien met de bijbehordende keuzes */}
 					{showQuestions ? (
-						<div>
+						<div class="quiz__assignment">
 							<div class="assignment">
-								<span class="u-text-assignment-length">Oefening {currentQuestion + 1}/{Questions.length}</span>
+								<h2 class="u-text-assignment-length">Oefening {currentQuestion + 1}/{Questions.length}</h2>
 								<div className='u-text-assignment'>{Questions[currentQuestion].questionText}</div>
 								<img class="image-assignment image-quiz" src={Questions[currentQuestion].src} alt={Questions[currentQuestion].alt} />
 							</div>
@@ -183,7 +181,7 @@ export default function QuizAltTags() {
 					) : null}
 
 					{showCorrect ? (
-						<div class="assignment">
+						<div class="assignment quiz__assignment">
 							<p class="u-text-correct"><FontAwesomeIcon icon={faCheckCircle} /> Het antwoord is juist!</p>
 							<p class="u-text-description">{Questions[currentQuestion].answerCorrect}</p>
 						</div>
@@ -192,8 +190,8 @@ export default function QuizAltTags() {
 					{/* Laat de uitleg zien waarom het antwoord FOUT is */}
 					{showIncorrect ? (
 						<div>
-							<div class="assignment">
-								<p class="u-text-incorrect"><FontAwesomeIcon icon={faTimesCircle} /> Het antwoord is onjuist..</p>
+							<div class="assignment quiz__assignment">
+								<p class="u-text-incorrect"><FontAwesomeIcon icon={faTimesCircle} /> Het antwoord is onjuist</p>
 								<p class="u-text-description">{Questions[currentQuestion].answerIncorrect}</p>
 							</div>
 						</div>
@@ -201,7 +199,7 @@ export default function QuizAltTags() {
 
 					{showCorrectLastOne ? (
 						<div>
-							<div class="assignment">
+							<div class="assignment quiz__assignment">
 								<p class="u-text-correct"><FontAwesomeIcon icon={faCheckCircle} /> Het antwoord is juist!</p>
 								<p class="u-text-assignment">{Questions[currentQuestion].answerCorrect}</p>
 							</div>
@@ -216,8 +214,8 @@ export default function QuizAltTags() {
 
 					{showIncorrectLastOne ? (
 						<div>
-							<div class="assignment">
-								<p class="u-text-incorrect"><FontAwesomeIcon icon={faTimesCircle} /> Het antwoord is onjuist..</p>
+							<div class="assignment quiz__assignment">
+								<p class="u-text-incorrect"><FontAwesomeIcon icon={faTimesCircle} /> Het antwoord is onjuist</p>
 								<p class="u-text-assignment">{Questions[currentQuestion].answerIncorrect}</p>
 							</div>
 							<div class="btn-action-left">
@@ -233,7 +231,7 @@ export default function QuizAltTags() {
 				<div className="home__image col-lg-6 col-sm-12 col-xs-12">
 					{showOptions ? (
 						<div>
-							<h1 class="u-text-title">Antwoordopties</h1>
+							<h2 class="u-text-title margin-top__title">Antwoordopties</h2>
 							<div className='answer-section'>
 								{Questions[currentQuestion].answerOptions.map((answerOption) => (
 									<div class="btn-option">
@@ -273,9 +271,9 @@ export default function QuizAltTags() {
 					</div>
 
 					<div className="col-lg-6 col-sm-12 col-xs-12">
-						<h2 class="u-text-title">Afgeronde onderdelen (3/7)</h2>
+						<h2 class="u-text-title margin-top__title">Afgeronde onderdelen (3/7)</h2>
 
-						<ol>
+						<ol aria-hidden="true">
 							<li>Kleurcontrast <FontAwesomeIcon icon={faCheckCircle} /></li>
 							<li>Tekst <FontAwesomeIcon icon={faCheckCircle} /></li>
 							<li>Tekstalternatieven <FontAwesomeIcon icon={faCheckCircle} /></li>

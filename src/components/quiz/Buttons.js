@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
 import ImageScore from '../../images/score.png';
-import QuizImage1 from '../../images/quiz-image-1.png';
 
 import { faCheckCircle, faTimesCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -14,27 +13,16 @@ export default function Buttons() {
 	const Questions = [
 		{	
 			explanation: '',
-			questionText: 'Stelling: met behulp van de volgende code wordt een klikbare knop op een toegankelijke manier geplaatst. <div class"buy_item" onclick="MyApp.buyItem();">Buy this item</div>',
+			questionText: 'Waar moet je allemaal op letten bij een knop op een webpagina?',
 			answerOptions: [
-				{ answerText: 'A ) De stelling is juist', isCorrect: false },
-				{ answerText: 'B ) De stelling is onjuist', isCorrect: true },
+				{ answerText: 'A ) Grootte, rol, kleurcontrast, toetsenbord toegankelijk', isCorrect: false },
+				{ answerText: 'B ) Rol, naamgeving, kleurcontrast, toetsenbord toegankelijk', isCorrect: false },
+				{ answerText: 'C ) Grootte, rol, naamgeving, kleurcontrast, toetsenbord toegankelijk', isCorrect: true },
 			],
 			src: '',
 			alt: '',
-			answerCorrect: 'De code is op deze manier niet toetsenbordtoegankelijk. Daarnaast kan er vanuit de mensen met een visuele beperking verwarring ontstaan over de rol en is het voor hen niet direct duidelijk dat het hier om een knop gaat.',
-			answerIncorrect: 'De code is op deze manier niet toetsenbordtoegankelijk. Hierdoor is de rol van het <div> element niet duidelijk voor mensen met een visuele beperking en snappen zij niet direct dat het hierbij om een knop gaat.'
-		},
-		{	
-			explanation: '',
-			questionText: 'Stelling: met behulp van de volgende code wordt een klikbare knop op een toegankelijke manier geplaatst. <button class="buy_item" onclick="MyApp.buyItem();">Buy this item</button>',
-			answerOptions: [
-				{ answerText: 'A ) De stelling is juist', isCorrect: true },
-				{ answerText: 'B ) De stelling is onjuist', isCorrect: false },
-			],
-			src: '',
-			alt: '',
-			answerCorrect: 'De code is op deze manier toetsenbordtoegankelijk. Daarnaast is de rol direct duidelijk voor mensen met een visuele beperking en is het voor hen direct duidelijk dat het hier om een knop gaat.',
-			answerIncorrect: 'De code bevat een standaard <button> component dat toegankelijk is. Het is verstandig om zoveel mogelijk standaard elementen te gebruiken in je project.'
+			answerCorrect: 'Het is van belang dat wanneer je bij een knop geen gebruik maakt van het standaard <button> element, er aan de code altijd een role="" wordt toegevoegd. Hierdoor begrijpen voorleessoftware gebruikers dat het hierbij om een knop gaat. Een voorbeeld van een toegankelijke knop in code: <div role=”button” tabindex=”0” class=”buy_item” onclick=”MyApp.buyItem();”>Buy this item</div>',
+			answerIncorrect: 'Het is van belang dat wanneer je bij een knop geen gebruik maakt van het standaard <button> element, er aan de code altijd een role="" wordt toegevoegd. Hierdoor begrijpen voorleessoftware gebruikers dat het hierbij om een knop gaat. Een voorbeeld van een toegankelijke knop in code: <div role=”button” tabindex=”0” class=”buy_item” onclick=”MyApp.buyItem();”>Buy this item</div>'
 		},
 	];
 
@@ -157,9 +145,9 @@ export default function Buttons() {
 
 					{/* Laat de vragen zien met de bijbehordende keuzes */}
 					{showQuestions ? (
-						<div>
+						<div class="quiz__assignment">
 							<div class="assignment">
-								<span class="u-text-assignment-length">Oefening {currentQuestion + 1}/{Questions.length}</span>
+								<h2 class="u-text-assignment-length">Oefening {currentQuestion + 1}/{Questions.length}</h2>
 								<div className='u-text-assignment'>{Questions[currentQuestion].questionText}</div>
 								<img class="image-assignment image-quiz" src={Questions[currentQuestion].src} alt={Questions[currentQuestion].alt} />
 							</div>
@@ -167,7 +155,7 @@ export default function Buttons() {
 					) : null}
 
 					{showCorrect ? (
-						<div class="assignment">
+						<div class="assignment quiz__assignment">
 							<p class="u-text-correct"><FontAwesomeIcon icon={faCheckCircle} /> Het antwoord is juist!</p>
 							<p class="u-text-description">{Questions[currentQuestion].answerCorrect}</p>
 						</div>
@@ -176,8 +164,8 @@ export default function Buttons() {
 					{/* Laat de uitleg zien waarom het antwoord FOUT is */}
 					{showIncorrect ? (
 						<div>
-							<div class="assignment">
-								<p class="u-text-incorrect"><FontAwesomeIcon icon={faTimesCircle} /> Het antwoord is onjuist..</p>
+							<div class="assignment quiz__assignment">
+								<p class="u-text-incorrect"><FontAwesomeIcon icon={faTimesCircle} /> Het antwoord is onjuist</p>
 								<p class="u-text-description">{Questions[currentQuestion].answerIncorrect}</p>
 							</div>
 						</div>
@@ -185,7 +173,7 @@ export default function Buttons() {
 
 					{showCorrectLastOne ? (
 						<div>
-							<div class="assignment">
+							<div class="assignment quiz__assignment">
 								<p class="u-text-correct"><FontAwesomeIcon icon={faCheckCircle} /> Het antwoord is juist!</p>
 								<p class="u-text-assignment">{Questions[currentQuestion].answerCorrect}</p>
 							</div>
@@ -200,8 +188,8 @@ export default function Buttons() {
 
 					{showIncorrectLastOne ? (
 						<div>
-							<div class="assignment">
-								<p class="u-text-incorrect"><FontAwesomeIcon icon={faTimesCircle} /> Het antwoord is onjuist..</p>
+							<div class="assignment quiz__assignment">
+								<p class="u-text-incorrect"><FontAwesomeIcon icon={faTimesCircle} /> Het antwoord is onjuist</p>
 								<p class="u-text-assignment">{Questions[currentQuestion].answerIncorrect}</p>
 							</div>
 							<div class="btn-action-left">
@@ -217,7 +205,7 @@ export default function Buttons() {
 				<div className="home__image col-lg-6 col-sm-12 col-xs-12">
 					{showOptions ? (
 						<div>
-							<h1 class="u-text-title">Antwoordopties</h1>
+							<h2 class="u-text-title margin-top__title">Antwoordopties</h2>
 							<div className='answer-section'>
 								{Questions[currentQuestion].answerOptions.map((answerOption) => (
 									<div class="btn-option">
@@ -257,9 +245,9 @@ export default function Buttons() {
 					</div>
 
 					<div className="col-lg-6 col-sm-12 col-xs-12">
-						<h2 class="u-text-title">Afgeronde onderdelen (6/7)</h2>
+						<h2 class="u-text-title margin-top__title">Afgeronde onderdelen (6/7)</h2>
 
-						<ol>
+						<ol aria-hidden="true">
 							<li>Kleurcontrast <FontAwesomeIcon icon={faCheckCircle} /></li>
 							<li>Tekst <FontAwesomeIcon icon={faCheckCircle} /></li>
 							<li>Tekstalternatieven <FontAwesomeIcon icon={faCheckCircle} /></li>
