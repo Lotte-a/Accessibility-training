@@ -15,20 +15,28 @@ import Links from './components/quiz/Links';
 import Labels from './components/quiz/Labels';
 import Buttons from './components/quiz/Buttons';
 import DocumentLanguage from './components/quiz/DocumentLanguage';
-
-
 import { Container } from 'react-bootstrap';
 
 import Logo from './images/logo.png';
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.myRef = React.createRef();  
+  }
+
+  componentDidMount() {
+    this.myRef.current.focus();
+  }
+
   render() {
+
     return (
 
     <Container>
       <nav class="navbar">
-        <a class="navbar__logo u-text-focus" href="/"><img src={Logo} alt="Logo Accessibility" class="navbar__logo-image" /></a>
-        <a class="navbar__contact u-text-color-dark-blue" href="#">Contact</a> 
+        <a class="navbar__logo u-text-focus" href="/" ref={this.myRef}><img src={Logo} alt="Logo Accessibility" class="navbar__logo-image" /></a>
       </nav>
 
       <Router>
