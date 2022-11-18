@@ -1,5 +1,5 @@
 # Accessibility-training
-An interactive training I've developed to create awareness about digital accessibility for people with a visual impairment within webshops
+An interactive training I've developed for my graduation project to create awareness about digital accessibility for people with a visual impairment within webshops
 
 ## Live demo
 [Website Accessibility training](https://accessibility-training.netlify.app/)
