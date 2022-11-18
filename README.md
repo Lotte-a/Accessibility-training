@@ -12,13 +12,14 @@ Would you like to look at the sourcecode of the Accessibility training project? 
     SCSS
     JavaScript
     React
+    Bootstrap
 
 ## Authors
     Lotte Arnoldussen - development and illustrations
 
 ## Support
 Reach out to me
-* Website lottearnoldussen.com (https://www.lottearnoldussen.com/#/)
+[Website Lottearnoldussen.com](https://www.lottearnoldussen.com/#/)
 
 ## License
 Copyright 2021 ©AccessibilityTraining
