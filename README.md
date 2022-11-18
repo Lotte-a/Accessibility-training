@@ -2,7 +2,7 @@
 A training about digital accessibility specially designed for entrepreneurs
 
 ## Live demo
-The Accessibility training is not online available yet
+* Accessibility training (https://accessibility-training.netlify.app/)
 
 ## Installation
 Would you like to look at the sourcecode of the Accessibility training project? Clone the repository and run the code.
