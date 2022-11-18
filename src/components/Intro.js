@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import { Button, Container } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import Modal from 'react-modal';
 
 import ReactPlayer from 'react-player/youtube'
 export default function QuizIntro() {
-
     const [closeModal, setCloseModal] = useState(true);
     const [autoPlay, setAutoPlay] = useState(false);
-
     const handleCloseModal = () => {
         setCloseModal(false);
         setAutoPlay(true);
@@ -21,7 +19,6 @@ export default function QuizIntro() {
                 <Helmet>
                     <title>Introductie | Accessibility Training</title>
                 </Helmet>
-
                 <Modal
                     isOpen={closeModal}
                     className="intro-modal"
@@ -29,7 +26,7 @@ export default function QuizIntro() {
                         labelledby: "heading",
                         describedby: "full_description"
                     }}
-                  >
+                >
                     <h1 class="intro__title">Hierna volgt een introductie video waarin de volgende onderwerpen behandeld zullen worden:</h1>
                     <div id="full_description">
                         <ol>
@@ -37,14 +34,12 @@ export default function QuizIntro() {
                             <li>Wat is digitale toegankelijkheid?</li>
                             <li>Verschillende soorten beperkingen</li>
                             <li>Demonstratie ontoegankelijke website</li>
-                        </ol> 
+                        </ol>
                     </div>
-
                     <div class="btn-action">
                         <Button onClick={handleCloseModal}>Start de video</Button>
                     </div>
                 </Modal>
-
                 <div className='player-wrapper'>
                     <ReactPlayer
                         className='react-player'
@@ -54,7 +49,6 @@ export default function QuizIntro() {
                         playing={autoPlay}
                     />
                 </div>
-
                 <div class="btn-float-right btn-action">
                     <Link to="/simulationOverview"><Button>Volgende</Button></Link>
                 </div>

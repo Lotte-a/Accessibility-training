@@ -10,7 +10,6 @@ import { faCheckCircle, faTimesCircle } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function QuizAltTags() {
-
 	const Questions = [
 		{	
 			explanation: 'De alt tag is een attribuut van een afbeelding. Het bestaat uit tekst die de content van de afbeelding beschrijft. De alt tag kan worden voorgelezen door voorleessofware, waardoor een persoon die blind is, in staat is om te begrijpen wat er op de afbeelding staat. Dit is een voorbeeld van een alt tag in code <img src="ondernemer.jpg" alt="ondernemer">',
@@ -65,11 +64,10 @@ export default function QuizAltTags() {
 	const [showScore, setShowScore] = useState(false);
 	const [currentScore, setCurrentScore] = useState(0);
 	const [showExplanation, setShowExplanation] = useState(true);
-	// const [btnColor, setBtnColor] = useState('blue');
 
 	// Show the explenation why an answer is correct or incorrect
 	const explenationQuestion = (isCorrect) => {
-		if (currentQuestion == 0) {
+		if (currentQuestion === 0) {
 			setDisabled(true);
 		} else {
 			setDisabled(false);
@@ -83,7 +81,6 @@ export default function QuizAltTags() {
 			setShowExplanation(false);
 			setShowIncorrect(false);
 			setShowCorrectLastOne(false);
-			// setBtnColor('green');
 		} else {
 			setShowIncorrect(true);
 			setShowCorrect(false);
@@ -91,10 +88,9 @@ export default function QuizAltTags() {
 			setShowExplanation(false);
 			setShowCorrectLastOne(false);
 			setShowIncorrectLastOne(false);
-			// setBtnColor('red');
 		}
 
-		if (currentQuestion == Questions.length - 1) {
+		if (currentQuestion === Questions.length - 1) {
 			if(isCorrect) {
 				setShowCorrectLastOne(true);
 				setShowIncorrectLastOne(false);
@@ -238,7 +234,6 @@ export default function QuizAltTags() {
 								{Questions[currentQuestion].answerOptions.map((answerOption) => (
 									<div class="btn-option">
 										<Button 
-											// style={{background:btnColor}}
 											className="btn-option" 
 											onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}
 										</Button>

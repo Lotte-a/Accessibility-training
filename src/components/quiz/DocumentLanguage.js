@@ -31,14 +31,13 @@ export default function DocumentLanguage() {
 	const [showCorrectLastOne, setShowCorrectLastOne] = useState(false);
 	const [showIncorrectLastOne, setShowIncorrectLastOne] = useState(false);
 	const [disabled, setDisabled] = useState(false);
-	const [showScore, setShowScore] = useState(false);
+	const [setShowScore] = useState(false);
 	const [currentScore, setCurrentScore] = useState(0);
 	const [showExplanation, setShowExplanation] = useState(true);
-	// const [btnColor, setBtnColor] = useState('blue');
 
 	// Show the explenation why an answer is correct or incorrect
 	const explenationQuestion = (isCorrect) => {
-		if (currentQuestion == 0) {
+		if (currentQuestion === 0) {
 			setDisabled(true);
 		} else {
 			setDisabled(false);
@@ -52,7 +51,6 @@ export default function DocumentLanguage() {
 			setShowExplanation(false);
 			setShowIncorrect(false);
 			setShowCorrectLastOne(false);
-			// setBtnColor('green');
 		} else {
 			setShowIncorrect(true);
 			setShowCorrect(false);
@@ -60,10 +58,9 @@ export default function DocumentLanguage() {
 			setShowExplanation(false);
 			setShowCorrectLastOne(false);
 			setShowIncorrectLastOne(false);
-			// setBtnColor('red');
 		}
 
-		if (currentQuestion == Questions.length - 1) {
+		if (currentQuestion === Questions.length - 1) {
 			if(isCorrect) {
 				setShowCorrectLastOne(true);
 				setShowIncorrectLastOne(false);
@@ -207,7 +204,6 @@ export default function DocumentLanguage() {
 								{Questions[currentQuestion].answerOptions.map((answerOption) => (
 									<div class="btn-option">
 										<Button 
-											// style={{background:btnColor}}
 											className="btn-option" 
 											onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}
 										</Button>

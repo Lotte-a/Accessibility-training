@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
 import ImageScore from '../../images/score.png';
-import QuizImage1 from '../../images/quiz-image-1.png';
 
 import { faCheckCircle, faTimesCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -37,11 +36,10 @@ export default function Labels() {
 	const [showScore, setShowScore] = useState(false);
 	const [currentScore, setCurrentScore] = useState(0);
 	const [showExplanation, setShowExplanation] = useState(true);
-	// const [btnColor, setBtnColor] = useState('blue');
 
 	// Show the explenation why an answer is correct or incorrect
 	const explenationQuestion = (isCorrect) => {
-		if (currentQuestion == 0) {
+		if (currentQuestion === 0) {
 			setDisabled(true);
 		} else {
 			setDisabled(false);
@@ -55,7 +53,6 @@ export default function Labels() {
 			setShowExplanation(false);
 			setShowIncorrect(false);
 			setShowCorrectLastOne(false);
-			// setBtnColor('green');
 		} else {
 			setShowIncorrect(true);
 			setShowCorrect(false);
@@ -63,10 +60,9 @@ export default function Labels() {
 			setShowExplanation(false);
 			setShowCorrectLastOne(false);
 			setShowIncorrectLastOne(false);
-			// setBtnColor('red');
 		}
 
-		if (currentQuestion == Questions.length - 1) {
+		if (currentQuestion === Questions.length - 1) {
 			if(isCorrect) {
 				setShowCorrectLastOne(true);
 				setShowIncorrectLastOne(false);
@@ -210,7 +206,6 @@ export default function Labels() {
 								{Questions[currentQuestion].answerOptions.map((answerOption) => (
 									<div class="btn-option">
 										<Button 
-											// style={{background:btnColor}}
 											className="btn-option" 
 											onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}
 										</Button>
