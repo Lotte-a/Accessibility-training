@@ -1,5 +1,5 @@
 # Accessibility-training
-A training about digital accessibility specially designed for entrepreneurs
+An interactive training I've developed to create awareness about digital accessibility for people with a visual impairment within webshops
 
 ## Live demo
 [Website Accessibility training](https://accessibility-training.netlify.app/)
@@ -13,6 +13,7 @@ Would you like to look at the sourcecode of the Accessibility training project? 
     JavaScript
     React
     Bootstrap
+    WCAG-guidelines
 
 ## Authors
     Lotte Arnoldussen - development and illustrations
