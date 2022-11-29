@@ -1,4 +1,9 @@
 # Accessibility-training
+|     |     |
+| --- | --- |
+| **Company** | Stichting Accessibility    |
+| **Duration** | feb. 2021 - jul. 2021 (6 months) |
+
 An interactive training I've developed for my graduation project at 'Stichting Accessibility' to create awareness about digital accessibility for people with a visual impairment within webshops
 
 ## Live demo
