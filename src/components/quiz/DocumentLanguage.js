@@ -31,7 +31,6 @@ export default function DocumentLanguage() {
 	const [showCorrectLastOne, setShowCorrectLastOne] = useState(false);
 	const [showIncorrectLastOne, setShowIncorrectLastOne] = useState(false);
 	const [disabled, setDisabled] = useState(false);
-	const [setShowScore] = useState(false);
 	const [currentScore, setCurrentScore] = useState(0);
 	const [showExplanation, setShowExplanation] = useState(true);
 
@@ -82,7 +81,6 @@ export default function DocumentLanguage() {
 	}
 
 	const score = () => {
-		setShowScore(true);
 		setShowCorrectLastOne(false);
 		setShowIncorrectLastOne(false);
 		setShowCorrect(false);
@@ -98,7 +96,6 @@ export default function DocumentLanguage() {
 		setShowExplanation(true);
 		setShowCorrect(false);
 		setShowIncorrect(false);
-		setShowScore(false);
 		setShowCorrectLastOne(false);
 		setShowIncorrectLastOne(false);
 	}
@@ -120,19 +117,19 @@ export default function DocumentLanguage() {
 	};
 
 	return (
-		<div class="wrapper">
+		<div className="wrapper">
 			<Helmet>
                 <title>Quiz document language | Accessibility Training</title>
             </Helmet>
 
 			<Row>
-				<div className="home-introduction hidden-hover col-lg-6 col-sm-12 col-xs-12">
+				<div className="wrapper__introduction hidden-hover col-lg-6 col-sm-12 col-xs-12">
 
-					<h1 class="u-text-title">Document language</h1>
+					<h1 className="u-text-title">Document language</h1>
 
 					{showExplanation? (
 						<div>
-							<p class="u-text-assignment">{Questions[currentQuestion].explanation}</p>
+							<p className="u-text-assignment">{Questions[currentQuestion].explanation}</p>
 						</div>
 					
 					) : null}
@@ -140,41 +137,41 @@ export default function DocumentLanguage() {
 					{/* Laat de vragen zien met de bijbehordende keuzes */}
 					{showQuestions ? (
 						<div>
-							<div class="assignment">
-								<span class="u-text-assignment-length">Oefening {currentQuestion + 1}/{Questions.length}</span>
+							<div className="assignment">
+								<span className="u-text-assignment-length">Oefening {currentQuestion + 1}/{Questions.length}</span>
 								<div className='u-text-assignment'>{Questions[currentQuestion].questionText}</div>
-								<img class="image-assignment image-quiz" src={Questions[currentQuestion].src} alt={Questions[currentQuestion].alt} />
+								<img className="image-assignment image-quiz" src={Questions[currentQuestion].src} alt={Questions[currentQuestion].alt} />
 							</div>
 						</div>
 					) : null}
 
 					{showCorrect ? (
-						<div class="assignment">
-							<p class="u-text-correct"><FontAwesomeIcon icon={faCheckCircle} /> Het antwoord is juist!</p>
-							<p class="u-text-description">{Questions[currentQuestion].answerCorrect}</p>
+						<div className="assignment">
+							<p className="u-text-correct"><FontAwesomeIcon icon={faCheckCircle} /> Het antwoord is juist!</p>
+							<p className="u-text-description">{Questions[currentQuestion].answerCorrect}</p>
 						</div>
 					) : null}
 
 					{/* Laat de uitleg zien waarom het antwoord FOUT is */}
 					{showIncorrect ? (
 						<div>
-							<div class="assignment">
-								<p class="u-text-incorrect"><FontAwesomeIcon icon={faTimesCircle} /> Het antwoord is onjuist..</p>
-								<p class="u-text-description">{Questions[currentQuestion].answerIncorrect}</p>
+							<div className="assignment">
+								<p className="u-text-incorrect"><FontAwesomeIcon icon={faTimesCircle} /> Het antwoord is onjuist..</p>
+								<p className="u-text-description">{Questions[currentQuestion].answerIncorrect}</p>
 							</div>
 						</div>
 					) : null}
 
 					{showCorrectLastOne ? (
 						<div>
-							<div class="assignment">
-								<p class="u-text-correct"><FontAwesomeIcon icon={faCheckCircle} /> Het antwoord is juist!</p>
-								<p class="u-text-assignment">{Questions[currentQuestion].answerCorrect}</p>
+							<div className="assignment">
+								<p className="u-text-correct"><FontAwesomeIcon icon={faCheckCircle} /> Het antwoord is juist!</p>
+								<p className="u-text-assignment">{Questions[currentQuestion].answerCorrect}</p>
 							</div>
-							<div class="btn-action-left">
+							<div className="btn-action-left">
 								<Button disabled={disabled} onClick={previousQuestion}>Vorige</Button>
 							</div>
-							<div class="btn-action-end-right">
+							<div className="btn-action-end-right">
                                 <Link to="/finishedQuiz"><Button onClick={score}>Onderdeel afronden</Button></Link>
 							</div>
 						</div>
@@ -182,27 +179,27 @@ export default function DocumentLanguage() {
 
 					{showIncorrectLastOne ? (
 						<div>
-							<div class="assignment">
-								<p class="u-text-incorrect"><FontAwesomeIcon icon={faTimesCircle} /> Het antwoord is onjuist..</p>
-								<p class="u-text-assignment">{Questions[currentQuestion].answerIncorrect}</p>
+							<div className="assignment">
+								<p className="u-text-incorrect"><FontAwesomeIcon icon={faTimesCircle} /> Het antwoord is onjuist..</p>
+								<p className="u-text-assignment">{Questions[currentQuestion].answerIncorrect}</p>
 							</div>
-							<div class="btn-action-left">
+							<div className="btn-action-left">
 								<Button disabled={disabled} onClick={previousQuestion}>Vorige</Button>
 							</div>
-							<div class="btn-action-end-right">
+							<div className="btn-action-end-right">
                                 <Link to="/finishedQuiz"><Button onClick={score}>Onderdeel afronden</Button></Link>
 							</div> 
 						</div>
 					) : null}
 				</div>
 
-				<div className="home__image col-lg-6 col-sm-12 col-xs-12">
+				<div className="wrapper__image col-lg-6 col-sm-12 col-xs-12">
 					{showOptions ? (
 						<div>
-							<h1 class="u-text-title">Antwoordopties</h1>
+							<h1 className="u-text-title">Antwoordopties</h1>
 							<div className='answer-section'>
 								{Questions[currentQuestion].answerOptions.map((answerOption) => (
-									<div class="btn-option">
+									<div className="btn-option">
 										<Button 
 											className="btn-option" 
 											onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}
@@ -214,14 +211,14 @@ export default function DocumentLanguage() {
 					) : null}
 				
 					{showIncorrect ? (
-						<div class="btn-action">
+						<div className="btn-action">
 							<Button disabled={disabled} onClick={previousQuestion}>Vorige</Button>
 							<Button className="btn-float-right" onClick={nextQuestion}>Volgende</Button>
 						</div>
 					) : null}
 
 					{showCorrect ? (
-						<div class="btn-action">
+						<div className="btn-action">
 							<Button onClick={previousQuestion} disabled={disabled}>Vorige</Button>
 							<Button className="btn-float-right" onClick={nextQuestion}>Volgende</Button>
 						</div>

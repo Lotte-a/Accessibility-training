@@ -13,7 +13,7 @@
   margin-bottom: 2.5rem;
 }
 
-.home__image-size {
+.wrapper__image-size {
   width: 100%;
   margin: 0 auto;
 }
@@ -61,7 +61,7 @@
     font-size: 2rem;
     margin-top: 5rem;
   }
-  .home__image-size {
+  .wrapper__image-size {
     margin-top: 60px;
   }
   .col-lg-6 {

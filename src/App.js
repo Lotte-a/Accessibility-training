@@ -23,8 +23,8 @@ class App extends Component {
   render() {
     return (
       <Container>
-        <nav class="navbar">
-          <a class="navbar__logo u-text-focus" href="/"><img src={Logo} alt="Logo Accessibility" class="navbar__logo-image" /></a>
+        <nav className="navbar">
+          <a className="navbar__logo u-text-focus" href="/"><img src={Logo} alt="Logo Accessibility" className="navbar__logo-image" /></a>
         </nav>
         <Router>
           <Route path="/" exact component={Home} />

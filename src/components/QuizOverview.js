@@ -4,17 +4,17 @@ import { Button, Row } from 'react-bootstrap';
 import { Helmet } from 'react-helmet';
 
 const QuizOverview = () => (
-    <div class="wrapper">
+    <div className="wrapper">
         <Helmet>
             <title>Quiz overzicht | Accessibility Training</title>
         </Helmet>
         <Row>
-            <div className="home-introduction hidden-hover col-lg-6 col-sm-12 col-xs-12">
-                <h1 class="u-text-title">Accessibility quiz</h1>
-                <p class="u-text-description">Welkom bij de Accessibility quiz. Deze quiz is opgesteld aan de hand van de <strong>7 quick wins</strong>, waardoor jij als kleine onderneming na de training in staat bent om <strong>snel </strong> en <strong>zonder al te veel kosten</strong> je website <strong>toegankelijker</strong> te maken!</p>
+            <div className="wrapper__introduction hidden-hover col-lg-6 col-sm-12 col-xs-12">
+                <h1 className="u-text-title">Accessibility quiz</h1>
+                <p className="u-text-description">Welkom bij de Accessibility quiz. Deze quiz is opgesteld aan de hand van de <strong>7 quick wins</strong>, waardoor jij als kleine onderneming na de training in staat bent om <strong>snel </strong> en <strong>zonder al te veel kosten</strong> je website <strong>toegankelijker</strong> te maken!</p>
             </div>
-            <div className="home__image col-lg-6 col-sm-12 col-xs-12">
-                <h1 class="u-text-title">Onderwerpen</h1>
+            <div className="wrapper__image col-lg-6 col-sm-12 col-xs-12">
+                <h1 className="u-text-title">Onderwerpen</h1>
                 <p>In de quiz zullen de volgende onderwerpen worden behandeld:</p>
                 <ol>
                     <li>Kleurcontrast</li>
@@ -25,7 +25,7 @@ const QuizOverview = () => (
                     <li>Buttons</li>
                     <li>Document language</li>
                 </ol>
-                <div class="btn-action">
+                <div className="btn-action">
                     <Link to="/colorContrast"><Button className="btn-float-right">Start de quiz</Button></Link>
                 </div>
             </div>

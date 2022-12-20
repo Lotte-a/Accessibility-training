@@ -15,7 +15,7 @@ export default function QuizIntro() {
 
     return (
         <div>
-            <div class="intro intro-wrapper">
+            <div className="intro intro-wrapper">
                 <Helmet>
                     <title>Introductie | Accessibility Training</title>
                 </Helmet>
@@ -27,7 +27,7 @@ export default function QuizIntro() {
                         describedby: "full_description"
                     }}
                 >
-                    <h1 class="intro__title">Hierna volgt een introductie video waarin de volgende onderwerpen behandeld zullen worden:</h1>
+                    <h1 className="intro__title">Hierna volgt een introductie video waarin de volgende onderwerpen behandeld zullen worden:</h1>
                     <div id="full_description">
                         <ol>
                             <li>Persoonlijke ervaring visueel beperkte</li>
@@ -36,7 +36,7 @@ export default function QuizIntro() {
                             <li>Demonstratie ontoegankelijke website</li>
                         </ol>
                     </div>
-                    <div class="btn-action">
+                    <div className="btn-action">
                         <Button onClick={handleCloseModal}>Start de video</Button>
                     </div>
                 </Modal>
@@ -49,7 +49,7 @@ export default function QuizIntro() {
                         playing={autoPlay}
                     />
                 </div>
-                <div class="btn-float-right btn-action">
+                <div className="btn-float-right btn-action">
                     <Link to="/simulationOverview"><Button>Volgende</Button></Link>
                 </div>
             </div>
